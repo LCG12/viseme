@@ -1,0 +1,65 @@
+{
+  "paragraph_id": "P_TEST2",
+  "syllables": [
+    {
+      "syllable": "ba",
+      "initial": "b",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 0,
+      "phrase_idx": 0,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "ba",
+      "initial": "b",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 1,
+      "phrase_idx": 0,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "ma",
+      "initial": "m",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 2,
+      "phrase_idx": 0,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "ma",
+      "initial": "m",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 3,
+      "phrase_idx": 0,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ni",
+      "initial": "n",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 4,
+      "phrase_idx": 0,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "hao",
+      "initial": "h",
+      "final": "ao",
+      "start_viseme": 4,
+      "end_viseme": 6,
+      "global_syllable_idx": 5,
+      "phrase_idx": 0,
+      "syllable_idx": 5
+    }
+  ]
+}

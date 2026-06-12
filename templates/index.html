@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viseme 舵机调节台</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f2ed;
+      --surface: #fffdfa;
+      --surface-2: #f6f8fb;
+      --ink: #1e2329;
+      --muted: #66717f;
+      --line: #d8dde5;
+      --accent: #0f766e;
+      --accent-2: #2563eb;
+      --danger: #b42318;
+      --ok: #16704a;
+      --shadow: 0 18px 48px rgba(28, 33, 40, 0.12);
+      font-family: Inter, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 7px;
+      min-height: 36px;
+      padding: 0 12px;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+    }
+
+    button:hover {
+      border-color: #9aa6b5;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+    
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    button.blue {
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+      color: white;
+    }
+
+    button.ghost {
+      background: transparent;
+    }
+
+    button.danger {
+      color: var(--danger);
+      border-color: #efb1aa;
+      background: #fff8f7;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0 10px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      min-height: 16px;
+      accent-color: var(--accent);
+    }
+
+    input[type="range"] {
+      min-height: 28px;
+      padding: 0;
+      accent-color: var(--accent);
+      background: transparent;
+    }
+    input.number-input {
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      font-weight: 600;
+      font-size: 14px;
+      background: #edf4f7;
+      border-color: #bcc7d4;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    input.number-input:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      outline: none;
+      background: #fff;
+    }
+
+    .app {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 253, 250, 0.92);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 62%, #f9fafb 0 18%, transparent 19%),
+        linear-gradient(135deg, #0f766e, #2563eb);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .subline {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: min(680px, 52vw);
+    }
+
+    .serial-strip {
+      display: grid;
+      grid-template-columns: 120px 96px 98px 92px 92px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 36px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #9aa6b5;
+    }
+
+    .status-pill.connected .status-dot {
+      background: var(--ok);
+    }
+
+    .status-pill.dry .status-dot {
+      background: #d97706;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 260px minmax(360px, 1fr) 410px;
+      gap: 16px;
+      padding: 16px;
+      min-height: 0;
+    }
+
+    .panel,
+    .viseme-list,
+    .controls {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .viseme-list {
+      padding: 10px;
+      overflow: auto;
+    }
+
+    .viseme-button {
+      width: 100%;
+      min-height: 68px;
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      text-align: left;
+      margin-bottom: 8px;
+      padding: 9px;
+      background: var(--surface);
+    }
+
+    .viseme-button.active {
+      border-color: var(--accent);
+      background: #eefaf7;
+    }
+
+    .v-id {
+      width: 42px;
+      height: 42px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      background: #202733;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .v-main {
+      min-width: 0;
+    }
+
+    .v-phoneme {
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .v-shape {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .aperture {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #edf1f6;
+      color: #425061;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-rows: auto minmax(280px, 1fr) auto;
+      gap: 12px;
+      min-height: 0;
+      padding: 14px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .preview-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.2)),
+        #edf4f7;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: min(100%, 740px);
+      height: min(52vh, 430px);
+      max-height: 430px;
+      display: block;
+    }
+
+    .readout {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .readout-item {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface-2);
+      padding: 8px;
+      min-width: 0;
+    }
+
+    .readout-label {
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .readout-value {
+      margin-top: 4px;
+      font-size: 17px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .packet-box {
+      margin-top: 10px;
+      min-height: 44px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #17202b;
+      color: #d7fbe8;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .servo-tabs {
+      display: flex;
+      gap: 4px;
+      margin-top: 2px;
+    }
+    .stab {
+      flex: 1;
+      min-height: 32px;
+      padding: 0 6px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .stab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .stab:hover:not(.active) { border-color: #9aa6b5; color: var(--ink); }
+
+    .controls {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .control-head {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 10px;
+    }
+
+    .toggles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .sliders {
+      padding: 12px 14px;
+      overflow: auto;
+    }
+
+    .slider-row {
+      display: grid;
+      grid-template-columns: 96px 34px 1fr 78px 34px;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #edf0f4;
+    }
+
+    .slider-row:last-child {
+      border-bottom: 0;
+    }
+
+    .channel-label {
+      min-width: 0;
+    }
+
+    .channel-name {
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .channel-key {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .step-btn {
+      width: 34px;
+      padding: 0;
+      font-weight: 700;
+      background: var(--surface-2);
+    }
+
+    .number-input {
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .action-bar {
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .message {
+      grid-column: 1 / -1;
+      min-height: 22px;
+      color: var(--muted);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .message.error {
+      color: var(--danger);
+    }
+
+    .copy-line {
+      display: grid;
+      grid-template-columns: 1fr 88px;
+      gap: 8px;
+    }
+
+    @media (max-width: 1180px) {
+      main {
+        grid-template-columns: 230px 1fr;
+      }
+
+      .controls {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .serial-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .viseme-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .viseme-button {
+        margin: 0;
+      }
+
+      .readout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .slider-row {
+        grid-template-columns: 82px 32px 1fr 72px 32px;
+      }
+
+      .toggles {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>Viseme 舵机调节台</h1>
+          <div class="subline" id="poseFile">pose file</div>
+        </div>
+      </div>
+      <div class="serial-strip">
+        <div class="status-pill" id="statusPill"><span class="status-dot"></span><span id="statusText">未连接</span></div>
+        <input id="portInput" value="COM8" aria-label="串口">
+        <input id="baudInput" type="number" value="115200" aria-label="波特率">
+        <button id="connectBtn" class="primary" title="连接串口或进入模拟发送">连接</button>
+        <button id="disconnectBtn" class="ghost" title="断开串口">断开</button>
+      </div>
+    </header>
+
+    <main>
+      <aside class="viseme-list" id="visemeList" aria-label="viseme 列表"></aside>
+
+      <section class="panel stage">
+        <div class="panel-head">
+          <div>
+            <h2 id="currentTitle">V0</h2>
+            <div class="meta-row" id="currentMeta"></div>
+          </div>
+          <button id="sendBtn" class="blue" title="发送当前姿态">发送</button>
+        </div>
+
+        <div class="preview-wrap">
+          <canvas id="mouthCanvas" width="820" height="470" aria-label="嘴型预览"></canvas>
+        </div>
+
+        <div>
+          <div class="readout" id="readout"></div>
+          <div class="packet-box" id="packetBox">[ ]</div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="control-head">
+          <div class="panel-head">
+            <h2 id="servoGroupTitle">嘴部舵机</h2>
+            <button id="saveBtn" class="primary" title="保存 JSON">保存</button>
+          </div>
+          <div class="servo-tabs" id="servoTabs">
+            <button class="stab active" data-group="mouth">嘴部</button>
+            <button class="stab" data-group="eyebrow">眉毛</button>
+            <button class="stab" data-group="eyelid">眼皮</button>
+            <button class="stab" data-group="eye">眼球</button>
+            <button class="stab" data-group="cheek">脸颊</button>
+          </div>
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" id="dryRunToggle" checked>模拟发送</label>
+            <label class="toggle"><input type="checkbox" id="autoSendToggle">自动发送</label>
+            <label class="toggle" id="linkCornersWrap"><input type="checkbox" id="linkCornersToggle" checked>嘴角联动</label>
+            <label class="toggle" id="linkUpperWrap"><input type="checkbox" id="linkUpperToggle" checked>上唇联动</label>
+            <label class="toggle"><input type="checkbox" id="fineStepToggle">细步进</label>
+            <label class="toggle"><input type="checkbox" id="mirrorToggle">镜像预览</label>
+          </div>
+        </div>
+
+        <div class="sliders" id="sliders"></div>
+
+        <div class="action-bar">
+          <button id="zeroBtn" class="danger" title="当前 viseme 归零">归零</button>
+          <button id="defaultBtn" title="恢复内置默认值">默认</button>
+          <button id="reloadBtn" title="重新读取 JSON">重读</button>
+          <div class="copy-line">
+            <select id="copySource" aria-label="复制来源"></select>
+            <button id="copyBtn" title="复制到当前 viseme">复制</button>
+          </div>
+          <button id="exportBtn" title="导出 dataset CSV">导出 CSV</button>
+          <button id="saveBtn2" class="primary" title="保存 JSON">保存</button>
+          <div class="message" id="message"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const state = {
+      selected: 0,
+      data: null,
+      dirty: false,
+      neutralDirty: false,
+      busy: false,
+      autoSendTimer: null,
+      autoSendInFlight: false,
+      autoSendPending: false,
+      selectedGroup: "mouth",
+    };
+
+    const els = {
+      poseFile: document.getElementById("poseFile"),
+      statusPill: document.getElementById("statusPill"),
+      statusText: document.getElementById("statusText"),
+      portInput: document.getElementById("portInput"),
+      baudInput: document.getElementById("baudInput"),
+      connectBtn: document.getElementById("connectBtn"),
+      disconnectBtn: document.getElementById("disconnectBtn"),
+      visemeList: document.getElementById("visemeList"),
+      currentTitle: document.getElementById("currentTitle"),
+      currentMeta: document.getElementById("currentMeta"),
+      sendBtn: document.getElementById("sendBtn"),
+      saveBtn: document.getElementById("saveBtn"),
+      saveBtn2: document.getElementById("saveBtn2"),
+      sliders: document.getElementById("sliders"),
+      servoGroupTitle: document.getElementById("servoGroupTitle"),
+      servoTabs: document.getElementById("servoTabs"),
+      readout: document.getElementById("readout"),
+      packetBox: document.getElementById("packetBox"),
+      message: document.getElementById("message"),
+      dryRunToggle: document.getElementById("dryRunToggle"),
+      autoSendToggle: document.getElementById("autoSendToggle"),
+      linkCornersToggle: document.getElementById("linkCornersToggle"),
+      linkUpperToggle: document.getElementById("linkUpperToggle"),
+      linkCornersWrap: document.getElementById("linkCornersWrap"),
+      linkUpperWrap: document.getElementById("linkUpperWrap"),
+      fineStepToggle: document.getElementById("fineStepToggle"),
+      mirrorToggle: document.getElementById("mirrorToggle"),
+      zeroBtn: document.getElementById("zeroBtn"),
+      defaultBtn: document.getElementById("defaultBtn"),
+      reloadBtn: document.getElementById("reloadBtn"),
+      exportBtn: document.getElementById("exportBtn"),
+      copySource: document.getElementById("copySource"),
+      copyBtn: document.getElementById("copyBtn"),
+      canvas: document.getElementById("mouthCanvas"),
+    };
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function fmt(value) {
+      return Number(value).toFixed(2);
+    }
+
+    function currentPose() {
+      return state.data.poses[String(state.selected)].slice();
+    }
+
+    function servoRange(index) {
+      const srv = servoByIndex(index);
+      return srv.key === "mouth_open" ? {min: 0, max: 1} : {min: -1, max: 1};
+    }
+
+    function mouthChannelRange(channelIndex) {
+      return channelIndex === 0 ? {min: 0, max: 1} : {min: -1, max: 1};
+    }
+
+    function clampPose(values) {
+      return values.map((value, i) => {
+        const r = mouthChannelRange(i);
+        return clamp(Number(value), r.min, r.max);
+      });
+    }
+
+    function setCurrentPose(values) {
+      state.data.poses[String(state.selected)] = clampPose(values);
+      state.dirty = true;
+      refreshPoseViews();
+      scheduleAutoSend();
+    }
+
+    // --- neutral rest helpers ---
+    function neutralRestValue(index) {
+      const nr = state.data.neutral_rest || {};
+      return Number(nr[String(index)] || 0);
+    }
+
+    function setNeutralRest(index, value) {
+      if (!state.data.neutral_rest) state.data.neutral_rest = {};
+      const r = servoRange(index);
+      state.data.neutral_rest[String(index)] = clamp(Number(value), r.min, r.max);
+      state.neutralDirty = true;
+      // rebuild base_command so packet preview updates
+      rebuildBaseCommand();
+      refreshPoseViews();
+      scheduleAutoSend();
+    }
+
+    function rebuildBaseCommand() {
+      const bc = state.data.base_command.slice();
+      const nr = state.data.neutral_rest || {};
+      const nonMouth = [];
+      for (let i = 0; i < 16; i++) {
+        if (!state.data.mouth_indices.includes(i)) nonMouth.push(i);
+      }
+      nonMouth.forEach(i => {
+        bc[i] = Number(nr[String(i)] || 0);
+      });
+      state.data.base_command = bc;
+    }
+
+    function isMouthGroup() {
+      return state.selectedGroup === "mouth";
+    }
+
+    function currentGroupIndices() {
+      if (isMouthGroup()) {
+        return state.data.mouth_indices || [8, 9, 10, 11, 12, 13];
+      }
+      const grp = (state.data.servo_groups || []).find(g => g.id === state.selectedGroup);
+      return grp ? grp.indices : [];
+    }
+
+    function servoByIndex(idx) {
+      return (state.data.all_servos || []).find(s => s.index === idx) || {
+        index: idx, key: "servo_" + idx, label: "Servo " + idx, short: "S" + idx, group: ""
+      };
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, {
+        headers: {"Content-Type": "application/json"},
+        ...options,
+      });
+      const data = await response.json();
+      if (!response.ok || data.ok === false) {
+        throw new Error(data.error || `HTTP ${response.status}`);
+      }
+      return data;
+    }
+
+    async function loadState() {
+      try {
+        state.data = await api("/api/state");
+        state.selected = 0;
+        render();
+        showMessage("已读取姿态");
+      } catch (err) {
+        showMessage(err.message, true);
+      }
+    }
+
+    function mergeState(data, options = {}) {
+      state.data = data;
+      state.dirty = false;
+      if (options.partial) {
+        renderHeader();
+        syncSliderValues();
+        renderReadout();
+        renderCanvas();
+      } else {
+        render();
+      }
+    }
+
+    function showMessage(text, isError = false) {
+      els.message.textContent = text || "";
+      els.message.classList.toggle("error", Boolean(isError));
+    }
+
+    function render() {
+      if (!state.data) return;
+      renderHeader();
+      renderVisemes();
+      renderSliders();
+      renderReadout();
+      renderCanvas();
+    }
+
+    function refreshPoseViews() {
+      syncSliderValues();
+      renderReadout();
+      renderCanvas();
+      updatePacketBox();
+    }
+
+    function renderHeader() {
+      const serial = state.data.serial;
+      els.poseFile.textContent = state.data.pose_file;
+      els.portInput.value = serial.port || els.portInput.value;
+      els.baudInput.value = serial.baudrate || els.baudInput.value;
+      els.dryRunToggle.checked = Boolean(serial.dry_run);
+
+      els.statusPill.classList.toggle("connected", serial.connected);
+      els.statusPill.classList.toggle("dry", serial.dry_run && !serial.connected);
+      els.statusText.textContent = serial.connected ? "串口已连接" : (serial.dry_run ? "模拟发送" : "未连接");
+
+      updatePacketBox();
+    }
+
+    function updatePacketBox() {
+      const serial = state.data.serial || {};
+      els.packetBox.textContent = state.dirty
+        ? buildPacketPreview(currentPose())
+        : (serial.last_packet || buildPacketPreview(currentPose()));
+    }
+
+    function renderVisemes() {
+      els.visemeList.innerHTML = "";
+      for (let i = 0; i < 8; i += 1) {
+        const meta = state.data.viseme_meta[String(i)];
+        const btn = document.createElement("button");
+        btn.className = "viseme-button" + (i === state.selected ? " active" : "");
+        btn.innerHTML = `
+          <div class="v-id">V${i}</div>
+          <div class="v-main">
+            <div class="v-phoneme">${meta.phonemes}</div>
+            <div class="v-shape">${meta.shape_label}</div>
+          </div>
+          <div class="aperture">${meta.aperture}</div>
+        `;
+        btn.addEventListener("click", async () => {
+          await savePoseLocalOnly();
+          state.selected = i;
+          render();
+        });
+        els.visemeList.appendChild(btn);
+      }
+
+      const meta = state.data.viseme_meta[String(state.selected)];
+      els.currentTitle.textContent = `V${state.selected}  ${meta.phonemes}`;
+      els.currentMeta.innerHTML = `
+        <span class="chip">${meta.shape_label}</span>
+        <span class="chip">aperture ${meta.aperture}</span>
+        <span class="chip">${state.data.mouth_indices.join(", ")}</span>
+      `;
+
+      els.copySource.innerHTML = "";
+      for (let i = 0; i < 8; i += 1) {
+        const option = document.createElement("option");
+        const sourceMeta = state.data.viseme_meta[String(i)];
+        option.value = String(i);
+        option.textContent = `V${i} ${sourceMeta.phonemes}`;
+        option.disabled = i === state.selected;
+        els.copySource.appendChild(option);
+      }
+      if (Number(els.copySource.value) === state.selected) {
+        els.copySource.value = String((state.selected + 1) % 8);
+      }
+    }
+
+    function renderSliders() {
+      const indices = currentGroupIndices();
+      els.sliders.innerHTML = "";
+
+      indices.forEach((idx, localIdx) => {
+        const srv = servoByIndex(idx);
+        const isMouth = isMouthGroup();
+        const value = isMouth ? currentPose()[idx - 8] : neutralRestValue(idx);
+        const limits = servoRange(idx);
+
+        const row = document.createElement("div");
+        row.className = "slider-row";
+        row.dataset.servoIndex = String(idx);
+        row.innerHTML = `
+          <div class="channel-label">
+            <div class="channel-name">${srv.label}</div>
+            <div class="channel-key">${srv.key}</div>
+          </div>
+          <button class="step-btn" data-step="-1" title="减小">-</button>
+          <input type="range" min="${limits.min}" max="${limits.max}" step="0.01" value="${value}" aria-label="${srv.label}">
+          <input class="number-input" type="number" min="${limits.min}" max="${limits.max}" step="0.01" value="${fmt(value)}" aria-label="${srv.label} 数值">
+          <button class="step-btn" data-step="1" title="增大">+</button>
+        `;
+
+        const range = row.querySelector("input[type='range']");
+        const number = row.querySelector(".number-input");
+        const buttons = row.querySelectorAll(".step-btn");
+
+        const commit = (rawVal) => {
+          const r = servoRange(idx);
+          const v = clamp(Number(rawVal), r.min, r.max);
+          if (isMouth) {
+            const ch = idx - 8;
+            const pose = currentPose();
+            pose[ch] = v;
+            if (els.linkCornersToggle.checked && (ch === 1 || ch === 2)) {
+              pose[ch === 1 ? 2 : 1] = v;
+            }
+            if (els.linkUpperToggle.checked && (ch === 3 || ch === 4)) {
+              pose[ch === 3 ? 4 : 3] = v;
+            }
+            setCurrentPose(pose);
+          } else {
+            setNeutralRest(idx, v);
+          }
+        };
+
+        range.addEventListener("input", event => {
+          const r = servoRange(idx);
+          const v = clamp(Number(event.target.value), r.min, r.max);
+          commit(v);
+          // sync number input in real-time
+          number.value = fmt(v);
+        });
+        range.addEventListener("change", () => { if (!isMouth) flushAutoSend(); });
+        // number input: commit on blur or Enter
+        number.addEventListener("change", event => {
+          commit(event.target.value);
+          if (!isMouth) flushAutoSend();
+        });
+        number.addEventListener("keydown", event => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            commit(number.value);
+            if (!isMouth) flushAutoSend();
+            range.value = number.value;
+            number.blur();  // dismiss keyboard on mobile / confirm on desktop
+          }
+          if (event.key === "Escape") {
+            // revert to current value
+            const curVal = isMouth ? currentPose()[idx - 8] : neutralRestValue(idx);
+            number.value = fmt(curVal);
+            number.blur();
+          }
+        });
+        buttons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const step = els.fineStepToggle.checked ? 0.01 : 0.03;
+            const direction = Number(btn.dataset.step);
+            const curVal = isMouth ? currentPose()[idx - 8] : neutralRestValue(idx);
+            commit(curVal + step * direction);
+            if (!isMouth) flushAutoSend();
+          });
+        });
+
+        els.sliders.appendChild(row);
+      });
+    }
+
+    function syncSliderValues() {
+      const isMouth = isMouthGroup();
+      els.sliders.querySelectorAll(".slider-row").forEach(row => {
+        const idx = Number(row.dataset.servoIndex);
+        const value = isMouth ? currentPose()[idx - 8] : neutralRestValue(idx);
+        const range = row.querySelector("input[type='range']");
+        const number = row.querySelector(".number-input");
+        if (range) range.value = String(value);
+        if (number) number.value = fmt(value);
+      });
+    }
+
+    function updateChannel(index, rawValue, linked) {
+      const pose = currentPose();
+      const r = mouthChannelRange(index);
+      const value = clamp(rawValue, r.min, r.max);
+      pose[index] = value;
+      if (linked && els.linkCornersToggle.checked && (index === 1 || index === 2)) {
+        pose[index === 1 ? 2 : 1] = value;
+      }
+      if (linked && els.linkUpperToggle.checked && (index === 3 || index === 4)) {
+        pose[index === 3 ? 4 : 3] = value;
+      }
+      setCurrentPose(pose);
+    }
+
+    function renderReadout() {
+      const isMouth = isMouthGroup();
+      const indices = currentGroupIndices();
+      els.readout.innerHTML = "";
+      indices.forEach(idx => {
+        const srv = servoByIndex(idx);
+        const value = isMouth ? currentPose()[idx - 8] : neutralRestValue(idx);
+        const item = document.createElement("div");
+        item.className = "readout-item";
+        item.innerHTML = `
+          <div class="readout-label">${srv.short}</div>
+          <div class="readout-value">${fmt(value)}</div>
+        `;
+        els.readout.appendChild(item);
+      });
+    }
+
+    function buildPacketPreview(pose) {
+      const full = state.data.base_command.slice();
+      state.data.mouth_indices.forEach((mouthIndex, i) => {
+        full[mouthIndex] = pose[i];
+      });
+      return "[" + full.map(v => Number(v).toFixed(2)).join(",") + "]";
+    }
+
+    function renderCanvas() {
+      const canvas = els.canvas;
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      const pose = currentPose();
+      ctx.clearRect(0, 0, w, h);
+
+      const gradient = ctx.createLinearGradient(0, 0, 0, h);
+      gradient.addColorStop(0, "#f9fbfc");
+      gradient.addColorStop(1, "#e5eef2");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, w, h);
+
+      const cx = w / 2;
+      const cy = h / 2 + 18;
+      const mouthOpen = clamp(pose[0], 0, 1);
+      const cornerL = pose[1];
+      const cornerR = pose[2];
+      const upper = (pose[3] + pose[4]) / 2;
+      const lower = pose[5];
+      const mirror = els.mirrorToggle.checked ? -1 : 1;
+      const leftCorner = mirror === 1 ? cornerL : cornerR;
+      const rightCorner = mirror === 1 ? cornerR : cornerL;
+      const avgCorner = (leftCorner + rightCorner) / 2;
+      const roundPull = clamp(-avgCorner, 0, 1);
+      const smileLiftL = -leftCorner * 34;
+      const smileLiftR = -rightCorner * 34;
+      const width = 260 + avgCorner * 92 - roundPull * 92;
+      const innerHeight = 18 + mouthOpen * 132 + lower * 28 - upper * 12;
+      const lipThickness = 20 + Math.abs(upper + lower) * 12;
+      const leftX = cx - width / 2;
+      const rightX = cx + width / 2;
+      const leftY = cy + smileLiftL;
+      const rightY = cy + smileLiftR;
+      const topY = cy - innerHeight / 2 - upper * 26;
+      const bottomY = cy + innerHeight / 2 + lower * 22;
+
+      ctx.save();
+      ctx.globalAlpha = 0.22;
+      ctx.fillStyle = "#70808f";
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + 106, width * 0.44, 18, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      drawLip(ctx, cx, cy, leftX, rightX, leftY, rightY, topY, bottomY, lipThickness);
+      drawGuides(ctx, cx, cy, width, innerHeight, pose);
+    }
+
+    function drawLip(ctx, cx, cy, leftX, rightX, leftY, rightY, topY, bottomY, thickness) {
+      const upperCtrlY = topY - thickness;
+      const lowerCtrlY = bottomY + thickness;
+
+      ctx.fillStyle = "#3a151c";
+      ctx.beginPath();
+      ctx.moveTo(leftX, leftY);
+      ctx.bezierCurveTo(cx - 120, topY, cx + 120, topY, rightX, rightY);
+      ctx.bezierCurveTo(cx + 112, bottomY, cx - 112, bottomY, leftX, leftY);
+      ctx.closePath();
+      ctx.fill();
+
+      const lipGrad = ctx.createLinearGradient(cx, upperCtrlY, cx, lowerCtrlY);
+      lipGrad.addColorStop(0, "#c65364");
+      lipGrad.addColorStop(0.48, "#f29baa");
+      lipGrad.addColorStop(1, "#9f3448");
+
+      ctx.fillStyle = lipGrad;
+      ctx.beginPath();
+      ctx.moveTo(leftX, leftY);
+      ctx.bezierCurveTo(cx - 130, upperCtrlY, cx + 130, upperCtrlY, rightX, rightY);
+      ctx.bezierCurveTo(cx + 116, topY + 12, cx - 116, topY + 12, leftX, leftY);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(leftX, leftY);
+      ctx.bezierCurveTo(cx - 118, bottomY - 12, cx + 118, bottomY - 12, rightX, rightY);
+      ctx.bezierCurveTo(cx + 130, lowerCtrlY, cx - 130, lowerCtrlY, leftX, leftY);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(69, 22, 32, 0.45)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(leftX, leftY);
+      ctx.bezierCurveTo(cx - 118, topY, cx + 118, topY, rightX, rightY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(leftX, leftY);
+      ctx.bezierCurveTo(cx - 116, bottomY, cx + 116, bottomY, rightX, rightY);
+      ctx.stroke();
+    }
+
+    function drawGuides(ctx, cx, cy, width, height, pose) {
+      ctx.save();
+      ctx.strokeStyle = "rgba(37, 99, 235, 0.32)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([8, 8]);
+      ctx.beginPath();
+      ctx.moveTo(cx - width / 2, cy);
+      ctx.lineTo(cx + width / 2, cy);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - height / 2);
+      ctx.lineTo(cx, cy + height / 2);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.fillStyle = "#1e2329";
+      ctx.font = "600 13px Inter, Segoe UI, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(`open ${fmt(pose[0])}`, cx, 38);
+      ctx.fillText(`corner ${fmt((pose[1] + pose[2]) / 2)}`, cx, 60);
+    }
+
+    async function savePoseLocalOnly() {
+      try {
+        // save mouth viseme if dirty
+        if (state.dirty) {
+          const data = await api(`/api/pose/${state.selected}`, {
+            method: "PUT",
+            body: JSON.stringify({values: currentPose()}),
+          });
+          mergeState(data);
+        }
+        // save neutral rest if dirty
+        if (state.neutralDirty && state.data.neutral_rest) {
+          const data = await api("/api/neutral-rest", {
+            method: "PUT",
+            body: JSON.stringify({values: state.data.neutral_rest}),
+          });
+          mergeState(data);
+          state.neutralDirty = false;
+        }
+      } catch (err) {
+        showMessage(err.message, true);
+      }
+    }
+
+    function scheduleAutoSend(delay = 80) {
+      if (!els.autoSendToggle.checked) return;
+      if (state.autoSendTimer) {
+        clearTimeout(state.autoSendTimer);
+      }
+      state.autoSendTimer = setTimeout(() => {
+        state.autoSendTimer = null;
+        sendCurrent({quiet: true, partial: true});
+      }, delay);
+    }
+
+    async function flushAutoSend() {
+      if (!els.autoSendToggle.checked) return;
+      if (state.autoSendTimer) {
+        clearTimeout(state.autoSendTimer);
+        state.autoSendTimer = null;
+      }
+      await sendCurrent({quiet: true, partial: true});
+    }
+
+    async function sendCurrent(options = {}) {
+      if (state.autoSendInFlight) {
+        state.autoSendPending = true;
+        return;
+      }
+
+      // sync neutral rest to server before sending
+      if (state.neutralDirty && state.data.neutral_rest) {
+        try {
+          const nrData = await api("/api/neutral-rest", {
+            method: "PUT",
+            body: JSON.stringify({values: state.data.neutral_rest}),
+          });
+          state.data.neutral_rest = nrData.neutral_rest;
+          state.data.base_command = nrData.base_command;
+          state.neutralDirty = false;
+        } catch (err) { /* continue with send anyway */ }
+      }
+
+      const selected = state.selected;
+      const sentPose = currentPose();
+      state.autoSendInFlight = true;
+      try {
+        const data = await api("/api/send", {
+          method: "POST",
+          body: JSON.stringify({viseme_id: selected, values: sentPose}),
+        });
+
+        const localPoses = state.data.poses;
+        const current = currentPose();
+        const unchangedSinceSend = selected === state.selected
+          && current.every((value, i) => Math.abs(value - sentPose[i]) < 0.0001);
+
+        state.data = data;
+        if (!unchangedSinceSend) {
+          state.data.poses = localPoses;
+          state.dirty = true;
+        } else {
+          state.dirty = false;
+        }
+
+        if (options.partial) {
+          renderHeader();
+          syncSliderValues();
+          renderReadout();
+          renderCanvas();
+        } else {
+          render();
+        }
+
+        if (!options.quiet) {
+          showMessage(`已发送 V${selected}`);
+        }
+      } catch (err) {
+        showMessage(err.message, true);
+      } finally {
+        state.autoSendInFlight = false;
+        if (state.autoSendPending && els.autoSendToggle.checked) {
+          state.autoSendPending = false;
+          scheduleAutoSend(0);
+        }
+      }
+    }
+
+    async function simplePost(path, body, okText) {
+      try {
+        const data = await api(path, {
+          method: "POST",
+          body: JSON.stringify(body || {}),
+        });
+        mergeState(data);
+        showMessage(okText);
+      } catch (err) {
+        showMessage(err.message, true);
+      }
+    }
+
+    // ---- servo group tabs ----
+    if (els.servoTabs) {
+      els.servoTabs.querySelectorAll(".stab").forEach(tab => {
+        tab.addEventListener("click", async () => {
+          await savePoseLocalOnly();  // save current edits before switching
+          els.servoTabs.querySelectorAll(".stab").forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+          state.selectedGroup = tab.dataset.group;
+          // show/hide mouth-only controls
+          const mouthOnly = isMouthGroup();
+          els.linkCornersWrap.style.display = mouthOnly ? "" : "none";
+          els.linkUpperWrap.style.display = mouthOnly ? "" : "none";
+          els.zeroBtn.style.display = mouthOnly ? "" : "none";
+          els.defaultBtn.style.display = mouthOnly ? "" : "none";
+          els.copySource.style.display = mouthOnly ? "" : "none";
+          els.copyBtn.style.display = mouthOnly ? "" : "none";
+          els.exportBtn.style.display = mouthOnly ? "" : "none";
+          // update title
+          const grpLabel = tab.textContent || "舵机";
+          els.servoGroupTitle.textContent = grpLabel + "舵机";
+          // re-render
+          renderSliders();
+          renderReadout();
+          updatePacketBox();
+        });
+      });
+    }
+
+    els.connectBtn.addEventListener("click", async () => {
+      try {
+        const data = await api("/api/connect", {
+          method: "POST",
+          body: JSON.stringify({
+            port: els.portInput.value.trim(),
+            baudrate: Number(els.baudInput.value),
+            dry_run: els.dryRunToggle.checked,
+            terminator: "\\n",
+          }),
+        });
+        mergeState(data);
+        showMessage(els.dryRunToggle.checked ? "已进入模拟发送" : "串口已连接");
+      } catch (err) {
+        showMessage(err.message, true);
+      }
+    });
+
+    els.disconnectBtn.addEventListener("click", () => simplePost("/api/disconnect", {send_neutral: true}, "已断开"));
+    els.sendBtn.addEventListener("click", sendCurrent);
+    els.saveBtn.addEventListener("click", async () => {
+      await savePoseLocalOnly();
+      await simplePost("/api/save", {}, "JSON 已保存");
+    });
+    els.saveBtn2.addEventListener("click", async () => {
+      await savePoseLocalOnly();
+      await simplePost("/api/save", {}, "JSON 已保存");
+    });
+    els.zeroBtn.addEventListener("click", () => simplePost(`/api/pose/${state.selected}/zero`, {}, `V${state.selected} 已归零`));
+    els.defaultBtn.addEventListener("click", () => simplePost(`/api/pose/${state.selected}/default`, {}, `V${state.selected} 已恢复默认`));
+    els.reloadBtn.addEventListener("click", () => simplePost("/api/reload", {}, "已重读 JSON"));
+    els.exportBtn.addEventListener("click", async () => {
+      await savePoseLocalOnly();
+      await simplePost("/api/export-csv", {}, "CSV 已导出");
+    });
+    els.copyBtn.addEventListener("click", () => {
+      simplePost(`/api/pose/${state.selected}/copy`, {source_id: Number(els.copySource.value)}, `已复制到 V${state.selected}`);
+    });
+    els.mirrorToggle.addEventListener("change", renderCanvas);
+
+    loadState();
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+servo_name,min,max
+brow_head_l,-1.0,1.0
+brow_head_r,-1.0,1.0
+eyelid_open_l,-1.0,1.0
+eyelid_open_r,-1.0,1.0
+eye_h_attention_l,-1.0,1.0
+eye_h_attention_r,-1.0,1.0
+eye_v_attention_l,-1.0,1.0
+eye_v_attention_r,-1.0,1.0
+mouth_open,0.0,1.0
+mouth_up_corner_l,-1.0,1.0
+mouth_up_corner_r,-1.0,1.0
+mouth_lip_upper_l,-1.0,1.0
+mouth_lip_upper_r,-1.0,1.0
+mouth_lip_lower,-1.0,1.0
+cheek_l,-1.0,1.0
+cheek_r,-1.0,1.0

@@ -1,0 +1,1375 @@
+{
+  "paragraph_id": "P001",
+  "syllables": [
+    {
+      "syllable": "xiang",
+      "initial": "x",
+      "final": "iang",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 0,
+      "phrase_idx": 0,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "xiang",
+      "initial": "x",
+      "final": "iang",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 1,
+      "phrase_idx": 0,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "yi",
+      "initial": "y",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 2,
+      "phrase_idx": 0,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "xia",
+      "initial": "x",
+      "final": "ia",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 3,
+      "phrase_idx": 0,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ni",
+      "initial": "n",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 4,
+      "phrase_idx": 1,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "zheng",
+      "initial": "zh",
+      "final": "eng",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 5,
+      "phrase_idx": 1,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "zai",
+      "initial": "z",
+      "final": "ai",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 6,
+      "phrase_idx": 1,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "yu",
+      "initial": "y",
+      "final": "u",
+      "start_viseme": 5,
+      "end_viseme": 3,
+      "global_syllable_idx": 7,
+      "phrase_idx": 1,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "yi",
+      "initial": "y",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 8,
+      "phrase_idx": 1,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "ge",
+      "initial": "g",
+      "final": "e",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 9,
+      "phrase_idx": 1,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 10,
+      "phrase_idx": 1,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "qi",
+      "initial": "q",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 11,
+      "phrase_idx": 1,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 12,
+      "phrase_idx": 1,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "dui",
+      "initial": "d",
+      "final": "ui",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 13,
+      "phrase_idx": 1,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "hua",
+      "initial": "h",
+      "final": "ua",
+      "start_viseme": 4,
+      "end_viseme": 7,
+      "global_syllable_idx": 14,
+      "phrase_idx": 1,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "zhe",
+      "initial": "zh",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 15,
+      "phrase_idx": 2,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "ge",
+      "initial": "g",
+      "final": "e",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 16,
+      "phrase_idx": 2,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 17,
+      "phrase_idx": 2,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "qi",
+      "initial": "q",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 18,
+      "phrase_idx": 2,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 19,
+      "phrase_idx": 2,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "neng",
+      "initial": "n",
+      "final": "eng",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 20,
+      "phrase_idx": 2,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "gou",
+      "initial": "g",
+      "final": "ou",
+      "start_viseme": 4,
+      "end_viseme": 6,
+      "global_syllable_idx": 21,
+      "phrase_idx": 2,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "gen",
+      "initial": "g",
+      "final": "en",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 22,
+      "phrase_idx": 2,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "ju",
+      "initial": "j",
+      "final": "u",
+      "start_viseme": 5,
+      "end_viseme": 3,
+      "global_syllable_idx": 23,
+      "phrase_idx": 2,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "ni",
+      "initial": "n",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 24,
+      "phrase_idx": 2,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "shuo",
+      "initial": "sh",
+      "final": "uo",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 25,
+      "phrase_idx": 2,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 26,
+      "phrase_idx": 2,
+      "syllable_idx": 11
+    },
+    {
+      "syllable": "nei",
+      "initial": "n",
+      "final": "ei",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 27,
+      "phrase_idx": 2,
+      "syllable_idx": 12
+    },
+    {
+      "syllable": "rong",
+      "initial": "r",
+      "final": "ong",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 28,
+      "phrase_idx": 2,
+      "syllable_idx": 13
+    },
+    {
+      "syllable": "he",
+      "initial": "h",
+      "final": "e",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 29,
+      "phrase_idx": 2,
+      "syllable_idx": 14
+    },
+    {
+      "syllable": "shuo",
+      "initial": "sh",
+      "final": "uo",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 30,
+      "phrase_idx": 2,
+      "syllable_idx": 15
+    },
+    {
+      "syllable": "hua",
+      "initial": "h",
+      "final": "ua",
+      "start_viseme": 4,
+      "end_viseme": 7,
+      "global_syllable_idx": 31,
+      "phrase_idx": 2,
+      "syllable_idx": 16
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 32,
+      "phrase_idx": 2,
+      "syllable_idx": 17
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 33,
+      "phrase_idx": 2,
+      "syllable_idx": 18
+    },
+    {
+      "syllable": "qing",
+      "initial": "q",
+      "final": "ing",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 34,
+      "phrase_idx": 2,
+      "syllable_idx": 19
+    },
+    {
+      "syllable": "gan",
+      "initial": "g",
+      "final": "an",
+      "start_viseme": 4,
+      "end_viseme": 7,
+      "global_syllable_idx": 35,
+      "phrase_idx": 2,
+      "syllable_idx": 20
+    },
+    {
+      "syllable": "bian",
+      "initial": "b",
+      "final": "ian",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 36,
+      "phrase_idx": 2,
+      "syllable_idx": 21
+    },
+    {
+      "syllable": "hua",
+      "initial": "h",
+      "final": "ua",
+      "start_viseme": 4,
+      "end_viseme": 7,
+      "global_syllable_idx": 37,
+      "phrase_idx": 2,
+      "syllable_idx": 22
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 38,
+      "phrase_idx": 3,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 39,
+      "phrase_idx": 3,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "di",
+      "initial": "d",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 40,
+      "phrase_idx": 3,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "zhan",
+      "initial": "zh",
+      "final": "an",
+      "start_viseme": 2,
+      "end_viseme": 7,
+      "global_syllable_idx": 41,
+      "phrase_idx": 3,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 42,
+      "phrase_idx": 3,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "chu",
+      "initial": "ch",
+      "final": "u",
+      "start_viseme": 2,
+      "end_viseme": 3,
+      "global_syllable_idx": 43,
+      "phrase_idx": 3,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "xiang",
+      "initial": "x",
+      "final": "iang",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 44,
+      "phrase_idx": 3,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "ying",
+      "initial": "y",
+      "final": "ing",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 45,
+      "phrase_idx": 3,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 46,
+      "phrase_idx": 3,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "mian",
+      "initial": "m",
+      "final": "ian",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 47,
+      "phrase_idx": 3,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "bu",
+      "initial": "b",
+      "final": "u",
+      "start_viseme": 0,
+      "end_viseme": 3,
+      "global_syllable_idx": 48,
+      "phrase_idx": 3,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "biao",
+      "initial": "b",
+      "final": "iao",
+      "start_viseme": 0,
+      "end_viseme": 6,
+      "global_syllable_idx": 49,
+      "phrase_idx": 3,
+      "syllable_idx": 11
+    },
+    {
+      "syllable": "qing",
+      "initial": "q",
+      "final": "ing",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 50,
+      "phrase_idx": 3,
+      "syllable_idx": 12
+    },
+    {
+      "syllable": "bi",
+      "initial": "b",
+      "final": "i",
+      "start_viseme": 0,
+      "end_viseme": 5,
+      "global_syllable_idx": 51,
+      "phrase_idx": 4,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "ru",
+      "initial": "r",
+      "final": "u",
+      "start_viseme": 2,
+      "end_viseme": 3,
+      "global_syllable_idx": 52,
+      "phrase_idx": 4,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "wei",
+      "initial": "w",
+      "final": "ei",
+      "start_viseme": 3,
+      "end_viseme": 5,
+      "global_syllable_idx": 53,
+      "phrase_idx": 4,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "xiao",
+      "initial": "x",
+      "final": "iao",
+      "start_viseme": 5,
+      "end_viseme": 6,
+      "global_syllable_idx": 54,
+      "phrase_idx": 4,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "zhou",
+      "initial": "zh",
+      "final": "ou",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 55,
+      "phrase_idx": 4,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "mei",
+      "initial": "m",
+      "final": "ei",
+      "start_viseme": 0,
+      "end_viseme": 5,
+      "global_syllable_idx": 56,
+      "phrase_idx": 4,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "huo",
+      "initial": "h",
+      "final": "uo",
+      "start_viseme": 4,
+      "end_viseme": 6,
+      "global_syllable_idx": 57,
+      "phrase_idx": 4,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "zhe",
+      "initial": "zh",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 58,
+      "phrase_idx": 4,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "zhang",
+      "initial": "zh",
+      "final": "ang",
+      "start_viseme": 2,
+      "end_viseme": 7,
+      "global_syllable_idx": 59,
+      "phrase_idx": 4,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "zui",
+      "initial": "z",
+      "final": "ui",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 60,
+      "phrase_idx": 4,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "zhe",
+      "initial": "zh",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 61,
+      "phrase_idx": 5,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "jiang",
+      "initial": "j",
+      "final": "iang",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 62,
+      "phrase_idx": 5,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 63,
+      "phrase_idx": 5,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 64,
+      "phrase_idx": 5,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 65,
+      "phrase_idx": 5,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "yu",
+      "initial": "y",
+      "final": "u",
+      "start_viseme": 5,
+      "end_viseme": 3,
+      "global_syllable_idx": 66,
+      "phrase_idx": 5,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 67,
+      "phrase_idx": 5,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "qi",
+      "initial": "q",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 68,
+      "phrase_idx": 5,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 69,
+      "phrase_idx": 5,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 70,
+      "phrase_idx": 5,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "hu",
+      "initial": "h",
+      "final": "u",
+      "start_viseme": 4,
+      "end_viseme": 3,
+      "global_syllable_idx": 71,
+      "phrase_idx": 5,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "dong",
+      "initial": "d",
+      "final": "ong",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 72,
+      "phrase_idx": 5,
+      "syllable_idx": 11
+    },
+    {
+      "syllable": "geng",
+      "initial": "g",
+      "final": "eng",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 73,
+      "phrase_idx": 5,
+      "syllable_idx": 12
+    },
+    {
+      "syllable": "jia",
+      "initial": "j",
+      "final": "ia",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 74,
+      "phrase_idx": 5,
+      "syllable_idx": 13
+    },
+    {
+      "syllable": "zi",
+      "initial": "z",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 75,
+      "phrase_idx": 5,
+      "syllable_idx": 14
+    },
+    {
+      "syllable": "ran",
+      "initial": "r",
+      "final": "an",
+      "start_viseme": 2,
+      "end_viseme": 7,
+      "global_syllable_idx": 76,
+      "phrase_idx": 5,
+      "syllable_idx": 15
+    },
+    {
+      "syllable": "he",
+      "initial": "h",
+      "final": "e",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 77,
+      "phrase_idx": 5,
+      "syllable_idx": 16
+    },
+    {
+      "syllable": "zhen",
+      "initial": "zh",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 78,
+      "phrase_idx": 5,
+      "syllable_idx": 17
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 79,
+      "phrase_idx": 5,
+      "syllable_idx": 18
+    },
+    {
+      "syllable": "zong",
+      "initial": "z",
+      "final": "ong",
+      "start_viseme": 5,
+      "end_viseme": 6,
+      "global_syllable_idx": 80,
+      "phrase_idx": 6,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 81,
+      "phrase_idx": 6,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "lai",
+      "initial": "l",
+      "final": "ai",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 82,
+      "phrase_idx": 6,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "shuo",
+      "initial": "sh",
+      "final": "uo",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 83,
+      "phrase_idx": 6,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "zhe",
+      "initial": "zh",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 84,
+      "phrase_idx": 7,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "pian",
+      "initial": "p",
+      "final": "ian",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 85,
+      "phrase_idx": 7,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "lun",
+      "initial": "l",
+      "final": "un",
+      "start_viseme": 2,
+      "end_viseme": 3,
+      "global_syllable_idx": 86,
+      "phrase_idx": 7,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "wen",
+      "initial": "w",
+      "final": "en",
+      "start_viseme": 3,
+      "end_viseme": 4,
+      "global_syllable_idx": 87,
+      "phrase_idx": 7,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ti",
+      "initial": "t",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 88,
+      "phrase_idx": 7,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "chu",
+      "initial": "ch",
+      "final": "u",
+      "start_viseme": 2,
+      "end_viseme": 3,
+      "global_syllable_idx": 89,
+      "phrase_idx": 7,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 90,
+      "phrase_idx": 7,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 91,
+      "phrase_idx": 7,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "shu",
+      "initial": "sh",
+      "final": "u",
+      "start_viseme": 2,
+      "end_viseme": 3,
+      "global_syllable_idx": 92,
+      "phrase_idx": 7,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "wei",
+      "initial": "w",
+      "final": "ei",
+      "start_viseme": 3,
+      "end_viseme": 5,
+      "global_syllable_idx": 93,
+      "phrase_idx": 7,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "fang",
+      "initial": "f",
+      "final": "ang",
+      "start_viseme": 1,
+      "end_viseme": 7,
+      "global_syllable_idx": 94,
+      "phrase_idx": 7,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "zhen",
+      "initial": "zh",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 95,
+      "phrase_idx": 7,
+      "syllable_idx": 11
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 96,
+      "phrase_idx": 7,
+      "syllable_idx": 12
+    },
+    {
+      "syllable": "qi",
+      "initial": "q",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 97,
+      "phrase_idx": 7,
+      "syllable_idx": 13
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 98,
+      "phrase_idx": 7,
+      "syllable_idx": 14
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 99,
+      "phrase_idx": 7,
+      "syllable_idx": 15
+    },
+    {
+      "syllable": "mian",
+      "initial": "m",
+      "final": "ian",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 100,
+      "phrase_idx": 7,
+      "syllable_idx": 16
+    },
+    {
+      "syllable": "bu",
+      "initial": "b",
+      "final": "u",
+      "start_viseme": 0,
+      "end_viseme": 3,
+      "global_syllable_idx": 101,
+      "phrase_idx": 7,
+      "syllable_idx": 17
+    },
+    {
+      "syllable": "biao",
+      "initial": "b",
+      "final": "iao",
+      "start_viseme": 0,
+      "end_viseme": 6,
+      "global_syllable_idx": 102,
+      "phrase_idx": 7,
+      "syllable_idx": 18
+    },
+    {
+      "syllable": "qing",
+      "initial": "q",
+      "final": "ing",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 103,
+      "phrase_idx": 7,
+      "syllable_idx": 19
+    },
+    {
+      "syllable": "sheng",
+      "initial": "sh",
+      "final": "eng",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 104,
+      "phrase_idx": 7,
+      "syllable_idx": 20
+    },
+    {
+      "syllable": "cheng",
+      "initial": "ch",
+      "final": "eng",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 105,
+      "phrase_idx": 7,
+      "syllable_idx": 21
+    },
+    {
+      "syllable": "ti",
+      "initial": "t",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 106,
+      "phrase_idx": 7,
+      "syllable_idx": 22
+    },
+    {
+      "syllable": "gong",
+      "initial": "g",
+      "final": "ong",
+      "start_viseme": 4,
+      "end_viseme": 6,
+      "global_syllable_idx": 107,
+      "phrase_idx": 7,
+      "syllable_idx": 23
+    },
+    {
+      "syllable": "le",
+      "initial": "l",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 108,
+      "phrase_idx": 7,
+      "syllable_idx": 24
+    },
+    {
+      "syllable": "yi",
+      "initial": "y",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 109,
+      "phrase_idx": 7,
+      "syllable_idx": 25
+    },
+    {
+      "syllable": "zhong",
+      "initial": "zh",
+      "final": "ong",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 110,
+      "phrase_idx": 7,
+      "syllable_idx": 26
+    },
+    {
+      "syllable": "xin",
+      "initial": "x",
+      "final": "in",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 111,
+      "phrase_idx": 7,
+      "syllable_idx": 27
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 112,
+      "phrase_idx": 7,
+      "syllable_idx": 28
+    },
+    {
+      "syllable": "fang",
+      "initial": "f",
+      "final": "ang",
+      "start_viseme": 1,
+      "end_viseme": 7,
+      "global_syllable_idx": 113,
+      "phrase_idx": 7,
+      "syllable_idx": 29
+    },
+    {
+      "syllable": "fa",
+      "initial": "f",
+      "final": "a",
+      "start_viseme": 1,
+      "end_viseme": 7,
+      "global_syllable_idx": 114,
+      "phrase_idx": 7,
+      "syllable_idx": 30
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 115,
+      "phrase_idx": 8,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "de",
+      "initial": "d",
+      "final": "e",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 116,
+      "phrase_idx": 8,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 117,
+      "phrase_idx": 8,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "qi",
+      "initial": "q",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 118,
+      "phrase_idx": 8,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 119,
+      "phrase_idx": 8,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "neng",
+      "initial": "n",
+      "final": "eng",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 120,
+      "phrase_idx": 8,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "gou",
+      "initial": "g",
+      "final": "ou",
+      "start_viseme": 4,
+      "end_viseme": 6,
+      "global_syllable_idx": 121,
+      "phrase_idx": 8,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "geng",
+      "initial": "g",
+      "final": "eng",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 122,
+      "phrase_idx": 8,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "jia",
+      "initial": "j",
+      "final": "ia",
+      "start_viseme": 5,
+      "end_viseme": 7,
+      "global_syllable_idx": 123,
+      "phrase_idx": 8,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "zi",
+      "initial": "z",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 124,
+      "phrase_idx": 8,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "ran",
+      "initial": "r",
+      "final": "an",
+      "start_viseme": 2,
+      "end_viseme": 7,
+      "global_syllable_idx": 125,
+      "phrase_idx": 8,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "di",
+      "initial": "d",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 126,
+      "phrase_idx": 8,
+      "syllable_idx": 11
+    },
+    {
+      "syllable": "yu",
+      "initial": "y",
+      "final": "u",
+      "start_viseme": 5,
+      "end_viseme": 3,
+      "global_syllable_idx": 127,
+      "phrase_idx": 8,
+      "syllable_idx": 12
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 128,
+      "phrase_idx": 8,
+      "syllable_idx": 13
+    },
+    {
+      "syllable": "lei",
+      "initial": "l",
+      "final": "ei",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 129,
+      "phrase_idx": 8,
+      "syllable_idx": 14
+    },
+    {
+      "syllable": "jin",
+      "initial": "j",
+      "final": "in",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 130,
+      "phrase_idx": 8,
+      "syllable_idx": 15
+    },
+    {
+      "syllable": "xing",
+      "initial": "x",
+      "final": "ing",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 131,
+      "phrase_idx": 8,
+      "syllable_idx": 16
+    },
+    {
+      "syllable": "jiao",
+      "initial": "j",
+      "final": "iao",
+      "start_viseme": 5,
+      "end_viseme": 6,
+      "global_syllable_idx": 132,
+      "phrase_idx": 8,
+      "syllable_idx": 17
+    },
+    {
+      "syllable": "liu",
+      "initial": "l",
+      "final": "iu",
+      "start_viseme": 2,
+      "end_viseme": 2,
+      "global_syllable_idx": 133,
+      "phrase_idx": 8,
+      "syllable_idx": 18
+    },
+    {
+      "syllable": "he",
+      "initial": "h",
+      "final": "e",
+      "start_viseme": 4,
+      "end_viseme": 4,
+      "global_syllable_idx": 134,
+      "phrase_idx": 8,
+      "syllable_idx": 19
+    },
+    {
+      "syllable": "hu",
+      "initial": "h",
+      "final": "u",
+      "start_viseme": 4,
+      "end_viseme": 3,
+      "global_syllable_idx": 135,
+      "phrase_idx": 8,
+      "syllable_idx": 20
+    },
+    {
+      "syllable": "dong",
+      "initial": "d",
+      "final": "ong",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 136,
+      "phrase_idx": 8,
+      "syllable_idx": 21
+    }
+  ]
+}

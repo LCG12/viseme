@@ -1,0 +1,8 @@
+
+  Viseme Servo GUI
+  Open  http://127.0.0.1:5050
+  Pose file: D:\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\direct_robot_pipeline\viseme_poses_6d.json
+  Connect serial or enable dry-run from the UI.
+
+ * Serving Flask app 'servo_gui'
+ * Debug mode: off

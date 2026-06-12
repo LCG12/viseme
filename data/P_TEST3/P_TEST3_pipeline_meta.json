@@ -1,0 +1,31 @@
+{
+  "paragraph_id": "P_TEST3",
+  "text": "爸爸妈妈你好。",
+  "audio": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TEST3\\P_TEST3.wav",
+  "config_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\config",
+  "sample_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TEST3",
+  "control_hz": 25.0,
+  "rms": {
+    "sample_rate": 22050,
+    "control_hz": 25.0,
+    "frame_size_samples": 882,
+    "frames": 56,
+    "threshold": 0.1,
+    "smooth_window": 3,
+    "min_active_frames": 2,
+    "max_silence_gap_fill": 2,
+    "duration_seconds": 2.223764172335601
+  },
+  "phrases": 1,
+  "syllables": 6,
+  "active_segments": 2,
+  "safe_trajectory": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TEST3\\P_TEST3_servo_target_16ch_safe.csv",
+  "mouth_servo_names": [
+    "mouth_open",
+    "mouth_up_corner_l",
+    "mouth_up_corner_r",
+    "mouth_lip_upper_l",
+    "mouth_lip_upper_r",
+    "mouth_lip_lower"
+  ]
+}

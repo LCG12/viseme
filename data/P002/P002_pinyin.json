@@ -1,0 +1,196 @@
+{
+  "paragraph_id": "P002",
+  "phrases": [
+    {
+      "phrase_idx": 0,
+      "text": "想象一下",
+      "pinyin": [
+        "xiang",
+        "xiang",
+        "yi",
+        "xia"
+      ]
+    },
+    {
+      "phrase_idx": 1,
+      "text": "你正在与一个机器人对话",
+      "pinyin": [
+        "ni",
+        "zheng",
+        "zai",
+        "yu",
+        "yi",
+        "ge",
+        "ji",
+        "qi",
+        "ren",
+        "dui",
+        "hua"
+      ]
+    },
+    {
+      "phrase_idx": 2,
+      "text": "这个机器人能够根据你说的内容和说话时的情感变化",
+      "pinyin": [
+        "zhe",
+        "ge",
+        "ji",
+        "qi",
+        "ren",
+        "neng",
+        "gou",
+        "gen",
+        "ju",
+        "ni",
+        "shuo",
+        "de",
+        "nei",
+        "rong",
+        "he",
+        "shuo",
+        "hua",
+        "shi",
+        "de",
+        "qing",
+        "gan",
+        "bian",
+        "hua"
+      ]
+    },
+    {
+      "phrase_idx": 3,
+      "text": "实时地展示出相应的面部表情",
+      "pinyin": [
+        "shi",
+        "shi",
+        "di",
+        "zhan",
+        "shi",
+        "chu",
+        "xiang",
+        "ying",
+        "de",
+        "mian",
+        "bu",
+        "biao",
+        "qing"
+      ]
+    },
+    {
+      "phrase_idx": 4,
+      "text": "比如微笑、皱眉或者张嘴",
+      "pinyin": [
+        "bi",
+        "ru",
+        "wei",
+        "xiao",
+        "zhou",
+        "mei",
+        "huo",
+        "zhe",
+        "zhang",
+        "zui"
+      ]
+    },
+    {
+      "phrase_idx": 5,
+      "text": "这将使得人与机器人的互动更加自然和真实",
+      "pinyin": [
+        "zhe",
+        "jiang",
+        "shi",
+        "de",
+        "ren",
+        "yu",
+        "ji",
+        "qi",
+        "ren",
+        "de",
+        "hu",
+        "dong",
+        "geng",
+        "jia",
+        "zi",
+        "ran",
+        "he",
+        "zhen",
+        "shi"
+      ]
+    },
+    {
+      "phrase_idx": 6,
+      "text": "总的来说",
+      "pinyin": [
+        "zong",
+        "de",
+        "lai",
+        "shuo"
+      ]
+    },
+    {
+      "phrase_idx": 7,
+      "text": "这篇论文提出的技术为仿真机器人的面部表情生成提供了一种新的方法",
+      "pinyin": [
+        "zhe",
+        "pian",
+        "lun",
+        "wen",
+        "ti",
+        "chu",
+        "de",
+        "ji",
+        "shu",
+        "wei",
+        "fang",
+        "zhen",
+        "ji",
+        "qi",
+        "ren",
+        "de",
+        "mian",
+        "bu",
+        "biao",
+        "qing",
+        "sheng",
+        "cheng",
+        "ti",
+        "gong",
+        "le",
+        "yi",
+        "zhong",
+        "xin",
+        "de",
+        "fang",
+        "fa"
+      ]
+    },
+    {
+      "phrase_idx": 8,
+      "text": "使得机器人能够更加自然地与人类进行交流和互动",
+      "pinyin": [
+        "shi",
+        "de",
+        "ji",
+        "qi",
+        "ren",
+        "neng",
+        "gou",
+        "geng",
+        "jia",
+        "zi",
+        "ran",
+        "di",
+        "yu",
+        "ren",
+        "lei",
+        "jin",
+        "xing",
+        "jiao",
+        "liu",
+        "he",
+        "hu",
+        "dong"
+      ]
+    }
+  ]
+}

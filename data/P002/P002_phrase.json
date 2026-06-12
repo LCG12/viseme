@@ -1,0 +1,50 @@
+{
+  "paragraph_id": "P002",
+  "phrases": [
+    {
+      "phrase_idx": 0,
+      "text": "想象一下",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 1,
+      "text": "你正在与一个机器人对话",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 2,
+      "text": "这个机器人能够根据你说的内容和说话时的情感变化",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 3,
+      "text": "实时地展示出相应的面部表情",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 4,
+      "text": "比如微笑、皱眉或者张嘴",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 5,
+      "text": "这将使得人与机器人的互动更加自然和真实",
+      "punctuation": "。"
+    },
+    {
+      "phrase_idx": 6,
+      "text": "总的来说",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 7,
+      "text": "这篇论文提出的技术为仿真机器人的面部表情生成提供了一种新的方法",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 8,
+      "text": "使得机器人能够更加自然地与人类进行交流和互动",
+      "punctuation": "。"
+    }
+  ]
+}

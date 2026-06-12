@@ -1,0 +1,4 @@
+segment_idx,start_frame,end_frame,start_time_ms,end_time_ms
+0,3,17,120,680
+1,30,34,1200,1360
+2,39,63,1560,2520

@@ -1,0 +1,31 @@
+{
+  "paragraph_id": "P001",
+  "text": "想象一下，你正在与一个机器人对话，这个机器人能够根据你说的内容和说话时的情感变化，实时地展示出相应的面部表情，比如微笑、皱眉或者张嘴，这将使得人与机器人的互动更加自然和真实。总的来说，这篇论文提出的技术为仿真机器人的面部表情生成提供了一种新的方法，使得机器人能够更加自然地与人类进行交流和互动。",
+  "audio": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P001\\P001.wav",
+  "config_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\config",
+  "sample_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P001",
+  "control_hz": 25.0,
+  "rms": {
+    "sample_rate": 22050,
+    "control_hz": 25.0,
+    "frame_size_samples": 882,
+    "frames": 87,
+    "threshold": 0.1,
+    "smooth_window": 3,
+    "min_active_frames": 2,
+    "max_silence_gap_fill": 2,
+    "duration_seconds": 3.4634467120181407
+  },
+  "phrases": 9,
+  "syllables": 137,
+  "active_segments": 3,
+  "safe_trajectory": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P001\\P001_servo_target_16ch_safe.csv",
+  "mouth_servo_names": [
+    "mouth_open",
+    "mouth_up_corner_l",
+    "mouth_up_corner_r",
+    "mouth_lip_upper_l",
+    "mouth_lip_upper_r",
+    "mouth_lip_lower"
+  ]
+}

@@ -1,0 +1,7 @@
+paragraph_id,phrase_idx,syllable_idx,global_syllable_idx,syllable,start_viseme,end_viseme,start_frame,end_frame,num_frames
+P_TEST,0,0,0,ba,0,7,3,8,6
+P_TEST,0,1,1,ba,0,7,9,14,6
+P_TEST,0,2,2,ma,0,7,15,20,6
+P_TEST,0,3,3,ma,0,7,21,25,5
+P_TEST,0,4,4,ni,2,5,26,30,5
+P_TEST,0,5,5,hao,4,6,31,35,5

@@ -1,0 +1,17 @@
+servo_id,servo_name,value
+0,brow_head_l,1.0
+1,brow_head_r,1.0
+2,eyelid_open_l,1.0
+3,eyelid_open_r,1.0
+4,eye_h_attention_l,1.0
+5,eye_h_attention_r,-1.0
+6,eye_v_attention_l,1.0
+7,eye_v_attention_r,-1.0
+8,mouth_open,0.0
+9,mouth_up_corner_l,0.0
+10,mouth_up_corner_r,0.0
+11,mouth_lip_upper_l,0.0
+12,mouth_lip_upper_r,0.0
+13,mouth_lip_lower,0.0
+14,cheek_l,1.0
+15,cheek_r,1.0
