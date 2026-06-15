@@ -1,0 +1,970 @@
+﻿{
+    "text":  "爸爸妈妈你好，今天我们测试机器人嘴型同步。",
+    "voice":  "Microsoft Huihui Desktop",
+    "culture":  "zh-CN",
+    "wav":  "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TTS_ALIGN\\P_TTS_ALIGN.wav",
+    "counts":  {
+                   "phoneme":  41,
+                   "viseme":  69,
+                   "progress":  11
+               },
+    "events":  [
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4593.5,
+                       "duration_ms":  40,
+                       "viseme":  6,
+                       "next_viseme":  16,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4648.625,
+                       "duration_ms":  55,
+                       "phoneme":  "ĉ",
+                       "next_phoneme":  "\r",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4648.625,
+                       "duration_ms":  55,
+                       "phoneme":  "\r",
+                       "next_phoneme":  "ě",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4524.625,
+                       "duration_ms":  50,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4393.75,
+                       "duration_ms":  47,
+                       "phoneme":  "\n",
+                       "next_phoneme":  "ĉ",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4393.75,
+                       "duration_ms":  47,
+                       "viseme":  16,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4393.75,
+                       "duration_ms":  47,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4648.625,
+                       "duration_ms":  55,
+                       "viseme":  16,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4924.062,
+                       "duration_ms":  35,
+                       "phoneme":  "\u000b",
+                       "next_phoneme":  "Ƥ",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4924.062,
+                       "duration_ms":  70,
+                       "viseme":  15,
+                       "next_viseme":  1,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5020.5,
+                       "duration_ms":  100,
+                       "viseme":  1,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4924.062,
+                       "duration_ms":  35,
+                       "phoneme":  "ě",
+                       "next_phoneme":  "\u000b",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4648.625,
+                       "duration_ms":  55,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4800.125,
+                       "duration_ms":  35,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4848.312,
+                       "duration_ms":  55,
+                       "viseme":  6,
+                       "next_viseme":  15,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  3732.5,
+                       "duration_ms":  55,
+                       "phoneme":  "\r",
+                       "next_phoneme":  "Ķ",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3732.5,
+                       "duration_ms":  110,
+                       "viseme":  15,
+                       "next_viseme":  1,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3884.062,
+                       "duration_ms":  45,
+                       "viseme":  1,
+                       "next_viseme":  1,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  3732.5,
+                       "duration_ms":  55,
+                       "phoneme":  ")",
+                       "next_phoneme":  "\r",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3581.062,
+                       "duration_ms":  40,
+                       "viseme":  1,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3636.125,
+                       "duration_ms":  70,
+                       "viseme":  19,
+                       "next_viseme":  15,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  3732.5,
+                       "character_position":  11,
+                       "character_count":  2,
+                       "text":  "测试"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3946.062,
+                       "duration_ms":  65,
+                       "viseme":  1,
+                       "next_viseme":  15,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4235.312,
+                       "duration_ms":  115,
+                       "viseme":  6,
+                       "next_viseme":  16,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  4393.75,
+                       "character_position":  13,
+                       "character_count":  3,
+                       "text":  "机器人"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4393.75,
+                       "duration_ms":  47,
+                       "phoneme":  "",
+                       "next_phoneme":  "\n",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4173.312,
+                       "duration_ms":  45,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4035.562,
+                       "duration_ms":  50,
+                       "phoneme":  "Ķ",
+                       "next_phoneme":  "\r",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  4035.562,
+                       "duration_ms":  50,
+                       "phoneme":  "\r",
+                       "next_phoneme":  "",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  4035.562,
+                       "duration_ms":  100,
+                       "viseme":  15,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5943.312,
+                       "duration_ms":  50,
+                       "viseme":  7,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6081.062,
+                       "duration_ms":  70,
+                       "viseme":  7,
+                       "next_viseme":  20,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6177.438,
+                       "duration_ms":  90,
+                       "viseme":  20,
+                       "next_viseme":  21,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5943.312,
+                       "duration_ms":  50,
+                       "viseme":  19,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  5943.312,
+                       "character_position":  18,
+                       "character_count":  2,
+                       "text":  "同步"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  5943.312,
+                       "duration_ms":  50,
+                       "phoneme":  "ŕ",
+                       "next_phoneme":  "\u000b",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  5943.312,
+                       "duration_ms":  50,
+                       "phoneme":  "\u000b",
+                       "next_phoneme":  "#",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  6301.438,
+                       "duration_ms":  22,
+                       "phoneme":  "#",
+                       "next_phoneme":  "\r",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6446.062,
+                       "duration_ms":  120,
+                       "viseme":  7,
+                       "next_viseme":  0,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  6611.438,
+                       "duration_ms":  750,
+                       "phoneme":  "\u0007",
+                       "next_phoneme":  "\u0007",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6611.438,
+                       "duration_ms":  750,
+                       "viseme":  0,
+                       "next_viseme":  0,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6363.438,
+                       "duration_ms":  60,
+                       "viseme":  7,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  6301.438,
+                       "duration_ms":  22,
+                       "phoneme":  "\r",
+                       "next_phoneme":  "\u0007",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6301.438,
+                       "duration_ms":  22,
+                       "viseme":  21,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  6301.438,
+                       "duration_ms":  22,
+                       "viseme":  7,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5309.75,
+                       "duration_ms":  40,
+                       "viseme":  15,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5309.75,
+                       "duration_ms":  40,
+                       "viseme":  7,
+                       "next_viseme":  4,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5419.938,
+                       "duration_ms":  80,
+                       "viseme":  4,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  5309.75,
+                       "duration_ms":  40,
+                       "phoneme":  "\f",
+                       "next_phoneme":  "Ŭ",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5158.25,
+                       "duration_ms":  110,
+                       "viseme":  19,
+                       "next_viseme":  15,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  5309.75,
+                       "character_position":  16,
+                       "character_count":  1,
+                       "text":  "嘴"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  5309.75,
+                       "duration_ms":  40,
+                       "phoneme":  "Ƥ",
+                       "next_phoneme":  "\f",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5530.125,
+                       "duration_ms":  60,
+                       "viseme":  6,
+                       "next_viseme":  16,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5612.75,
+                       "duration_ms":  50,
+                       "viseme":  6,
+                       "next_viseme":  1,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5750.5,
+                       "duration_ms":  70,
+                       "viseme":  1,
+                       "next_viseme":  20,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5846.938,
+                       "duration_ms":  70,
+                       "viseme":  20,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  5612.75,
+                       "duration_ms":  50,
+                       "viseme":  16,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  5612.75,
+                       "character_position":  17,
+                       "character_count":  1,
+                       "text":  "型"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  5612.75,
+                       "duration_ms":  50,
+                       "phoneme":  "Ŭ",
+                       "next_phoneme":  "\u000b",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  5612.75,
+                       "duration_ms":  50,
+                       "phoneme":  "\u000b",
+                       "next_phoneme":  "ŕ",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3505.312,
+                       "duration_ms":  55,
+                       "viseme":  21,
+                       "next_viseme":  1,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  1053.125,
+                       "duration_ms":  27,
+                       "phoneme":  "Ë",
+                       "next_phoneme":  "\u000e",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  1053.125,
+                       "duration_ms":  27,
+                       "phoneme":  "\u000e",
+                       "next_phoneme":  "ç",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1053.125,
+                       "duration_ms":  55,
+                       "viseme":  21,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  956.688,
+                       "duration_ms":  70,
+                       "viseme":  2,
+                       "next_viseme":  21,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  750.062,
+                       "duration_ms":  40,
+                       "phoneme":  "\n",
+                       "next_phoneme":  "Ë",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  750.062,
+                       "duration_ms":  80,
+                       "viseme":  21,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  860.25,
+                       "duration_ms":  70,
+                       "viseme":  2,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1128.875,
+                       "duration_ms":  70,
+                       "viseme":  2,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1335.5,
+                       "duration_ms":  40,
+                       "viseme":  19,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1335.5,
+                       "duration_ms":  40,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1445.688,
+                       "duration_ms":  50,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  1335.5,
+                       "duration_ms":  40,
+                       "phoneme":  "\u000b",
+                       "next_phoneme":  "",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1225.25,
+                       "duration_ms":  80,
+                       "viseme":  2,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  1335.5,
+                       "character_position":  4,
+                       "character_count":  1,
+                       "text":  "你"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  1335.5,
+                       "duration_ms":  40,
+                       "phoneme":  "ç",
+                       "next_phoneme":  "\u000b",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  137.062,
+                       "duration_ms":  35,
+                       "phoneme":  "\r",
+                       "next_phoneme":  "\u0014",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  137.062,
+                       "duration_ms":  70,
+                       "viseme":  21,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  233.5,
+                       "duration_ms":  80,
+                       "viseme":  2,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  137.062,
+                       "duration_ms":  35,
+                       "phoneme":  "\u0014",
+                       "next_phoneme":  "\r",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  0,
+                       "duration_ms":  100,
+                       "phoneme":  "\u0007",
+                       "next_phoneme":  "\u0014",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  0,
+                       "duration_ms":  100,
+                       "viseme":  0,
+                       "next_viseme":  21,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  137.062,
+                       "character_position":  0,
+                       "character_count":  2,
+                       "text":  "爸爸"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  343.688,
+                       "duration_ms":  70,
+                       "viseme":  2,
+                       "next_viseme":  21,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  639.812,
+                       "duration_ms":  80,
+                       "viseme":  2,
+                       "next_viseme":  21,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  750.062,
+                       "character_position":  2,
+                       "character_count":  2,
+                       "text":  "妈妈"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  750.062,
+                       "duration_ms":  40,
+                       "phoneme":  "Ë",
+                       "next_phoneme":  "\n",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  508.938,
+                       "duration_ms":  95,
+                       "viseme":  2,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  440.062,
+                       "duration_ms":  25,
+                       "phoneme":  "\u0014",
+                       "next_phoneme":  "\u000e",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  440.062,
+                       "duration_ms":  25,
+                       "phoneme":  "\u000e",
+                       "next_phoneme":  "Ë",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  440.062,
+                       "duration_ms":  50,
+                       "viseme":  21,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2864.75,
+                       "duration_ms":  47,
+                       "viseme":  6,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2995.625,
+                       "duration_ms":  95,
+                       "viseme":  2,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3126.5,
+                       "duration_ms":  100,
+                       "viseme":  19,
+                       "next_viseme":  7,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2864.75,
+                       "duration_ms":  47,
+                       "viseme":  19,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2761.438,
+                       "duration_ms":  75,
+                       "viseme":  19,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  2864.75,
+                       "duration_ms":  47,
+                       "phoneme":  "ő",
+                       "next_phoneme":  "\n",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  2864.75,
+                       "duration_ms":  47,
+                       "phoneme":  "\n",
+                       "next_phoneme":  "ţ",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  3264.25,
+                       "character_position":  9,
+                       "character_count":  2,
+                       "text":  "我们"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3429.562,
+                       "duration_ms":  55,
+                       "viseme":  8,
+                       "next_viseme":  21,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  3505.312,
+                       "duration_ms":  27,
+                       "phoneme":  "Ò",
+                       "next_phoneme":  "\u000e",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  3505.312,
+                       "duration_ms":  27,
+                       "phoneme":  "\u000e",
+                       "next_phoneme":  ")",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3367.562,
+                       "duration_ms":  45,
+                       "viseme":  8,
+                       "next_viseme":  8,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  3264.25,
+                       "duration_ms":  37,
+                       "phoneme":  "ţ",
+                       "next_phoneme":  "\f",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  3264.25,
+                       "duration_ms":  37,
+                       "phoneme":  "\f",
+                       "next_phoneme":  "Ò",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  3264.25,
+                       "duration_ms":  75,
+                       "viseme":  7,
+                       "next_viseme":  8,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1597.188,
+                       "duration_ms":  95,
+                       "viseme":  12,
+                       "next_viseme":  2,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1728.062,
+                       "duration_ms":  85,
+                       "viseme":  2,
+                       "next_viseme":  8,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1845.125,
+                       "duration_ms":  120,
+                       "viseme":  8,
+                       "next_viseme":  0,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  1597.188,
+                       "duration_ms":  47,
+                       "phoneme":  "\f",
+                       "next_phoneme":  "\u0007",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  1514.562,
+                       "duration_ms":  60,
+                       "viseme":  6,
+                       "next_viseme":  12,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  1597.188,
+                       "character_position":  5,
+                       "character_count":  1,
+                       "text":  "好"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  1597.188,
+                       "duration_ms":  47,
+                       "phoneme":  "",
+                       "next_phoneme":  "\f",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  2010.438,
+                       "duration_ms":  400,
+                       "phoneme":  "\u0007",
+                       "next_phoneme":  "",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2561.688,
+                       "duration_ms":  42,
+                       "viseme":  16,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2561.688,
+                       "duration_ms":  42,
+                       "viseme":  6,
+                       "next_viseme":  6,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2678.812,
+                       "duration_ms":  60,
+                       "viseme":  6,
+                       "next_viseme":  19,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  2561.688,
+                       "duration_ms":  42,
+                       "phoneme":  "\n",
+                       "next_phoneme":  "ő",
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "viseme",
+                       "audio_position_ms":  2010.438,
+                       "duration_ms":  400,
+                       "viseme":  0,
+                       "next_viseme":  16,
+                       "emphasis":  "0"
+                   },
+                   {
+                       "type":  "progress",
+                       "audio_position_ms":  2561.688,
+                       "character_position":  7,
+                       "character_count":  2,
+                       "text":  "今天"
+                   },
+                   {
+                       "type":  "phoneme",
+                       "audio_position_ms":  2561.688,
+                       "duration_ms":  42,
+                       "phoneme":  "",
+                       "next_phoneme":  "\n",
+                       "emphasis":  "0"
+                   }
+               ]
+}

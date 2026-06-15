@@ -111,6 +111,47 @@ def build_phone_events(
     return events
 
 
+def build_phone_events_from_alignment(
+    paragraph_id: str,
+    phone_alignment_rows: list[dict],
+) -> list[dict]:
+    events = []
+    for row in phone_alignment_rows:
+        phone = str(row["phone"])
+        role = str(row["phone_role"])
+        viseme_id = int(row["viseme_id"])
+        dominance = _dominance_for_viseme(viseme_id) if role == "tts_viseme" else _dominance(phone, role)
+        motion_profile = (
+            _motion_profile_for_viseme(viseme_id)
+            if role == "tts_viseme"
+            else _motion_profile(phone, role)
+        )
+        events.append(
+            _event_row(
+                paragraph_id,
+                row,
+                phone=phone,
+                phone_role=role,
+                viseme_id=viseme_id,
+                start_frame=int(row["start_frame"]),
+                end_frame=int(row["end_frame"]),
+                frame_ms=1.0,
+                dominance=dominance,
+                motion_profile=motion_profile,
+                start_time_ms=int(row["start_time_ms"]),
+                end_time_ms=int(row["end_time_ms"]),
+            )
+        )
+    events.sort(
+        key=lambda item: (
+            int(item["start_frame"]),
+            int(item["global_syllable_idx"]),
+            int(item.get("phone_idx", 0)),
+        )
+    )
+    return events
+
+
 def compute_phone_event_mix(
     phone_events: list[dict],
     control_hz: float = 25.0,
@@ -127,42 +168,57 @@ def compute_phone_event_mix(
         if len(events) == 1:
             event = events[0]
             for frame_id in range(int(event["start_frame"]), int(event["end_frame"]) + 1):
-                rows.append(_mix_row(event, frame_id, round(frame_id * frame_ms), event["viseme_id"], event["viseme_id"], 1.0))
+                rows.append(
+                    _mix_row(
+                        event,
+                        frame_id,
+                        round(frame_id * frame_ms),
+                        event["viseme_id"],
+                        event["viseme_id"],
+                        1.0,
+                    )
+                )
             continue
 
-        prev_event = events[0]
-        next_event = events[1]
-        release_frames = list(range(int(next_event["start_frame"]), int(next_event["end_frame"]) + 1))
-        release_len = max(1, len(release_frames))
+        for event_idx, event in enumerate(events):
+            event_frames = list(range(int(event["start_frame"]), int(event["end_frame"]) + 1))
+            event_len = max(1, len(event_frames))
+            if event_idx == 0:
+                for frame_id in event_frames:
+                    rows.append(
+                        _mix_row(
+                            event,
+                            frame_id,
+                            round(frame_id * frame_ms),
+                            int(event["viseme_id"]),
+                            int(event["viseme_id"]),
+                            1.0,
+                        )
+                    )
+                continue
 
-        for frame_id in range(int(prev_event["start_frame"]), int(prev_event["end_frame"]) + 1):
-            rows.append(
-                _mix_row(
-                    prev_event,
-                    frame_id,
-                    round(frame_id * frame_ms),
-                    int(prev_event["viseme_id"]),
-                    int(prev_event["viseme_id"]),
-                    1.0,
-                )
-            )
-
-        for local_idx, frame_id in enumerate(release_frames):
-            alpha = 1.0 if release_len == 1 else local_idx / (release_len - 1)
-            alpha = _profile_alpha(alpha, str(prev_event["motion_profile"]), str(next_event["motion_profile"]), curve)
-            rows.append(
-                _mix_row(
-                    next_event,
-                    frame_id,
-                    round(frame_id * frame_ms),
-                    int(prev_event["viseme_id"]),
-                    int(next_event["viseme_id"]),
+            prev_event = events[event_idx - 1]
+            for local_idx, frame_id in enumerate(event_frames):
+                alpha = 1.0 if event_len == 1 else local_idx / (event_len - 1)
+                alpha = _profile_alpha(
                     alpha,
+                    str(prev_event["motion_profile"]),
+                    str(event["motion_profile"]),
+                    curve,
                 )
-            )
+                rows.append(
+                    _mix_row(
+                        event,
+                        frame_id,
+                        round(frame_id * frame_ms),
+                        int(prev_event["viseme_id"]),
+                        int(event["viseme_id"]),
+                        alpha,
+                    )
+                )
 
-    rows.sort(key=lambda row: int(row["frame_id"]))
-    return rows
+    rows.sort(key=lambda row: (int(row["frame_id"]), int(row["global_syllable_idx"])))
+    return _dedupe_frame_rows(rows)
 
 
 def _initial_frame_count(initial: str, total_frames: int) -> int:
@@ -197,6 +253,27 @@ def _motion_profile(phone: str, role: str) -> str:
     return "soft_consonant"
 
 
+def _dominance_for_viseme(viseme_id: int) -> float:
+    if int(viseme_id) in {0, 1}:
+        return 1.0
+    if int(viseme_id) in {6, 7}:
+        return 0.86
+    if int(viseme_id) in {3, 4, 5}:
+        return 0.82
+    return 0.72
+
+
+def _motion_profile_for_viseme(viseme_id: int) -> str:
+    viseme_id = int(viseme_id)
+    if viseme_id == 0:
+        return "closure"
+    if viseme_id == 1:
+        return "labiodental"
+    if viseme_id in {3, 4, 5, 6, 7}:
+        return "vowel_hold"
+    return "soft_consonant"
+
+
 def _event_row(
     paragraph_id: str,
     allocation_row: dict,
@@ -208,8 +285,10 @@ def _event_row(
     frame_ms: float,
     dominance: float,
     motion_profile: str,
+    start_time_ms: int | None = None,
+    end_time_ms: int | None = None,
 ) -> dict:
-    return {
+    row = {
         "paragraph_id": paragraph_id,
         "phrase_idx": int(allocation_row["phrase_idx"]),
         "syllable_idx": int(allocation_row["syllable_idx"]),
@@ -220,11 +299,22 @@ def _event_row(
         "viseme_id": int(viseme_id),
         "start_frame": int(start_frame),
         "end_frame": int(end_frame),
-        "start_time_ms": round(int(start_frame) * frame_ms),
-        "end_time_ms": round(int(end_frame) * frame_ms),
+        "start_time_ms": (
+            round(int(start_frame) * frame_ms)
+            if start_time_ms is None
+            else int(start_time_ms)
+        ),
+        "end_time_ms": (
+            round(int(end_frame) * frame_ms)
+            if end_time_ms is None
+            else int(end_time_ms)
+        ),
         "dominance": round(float(dominance), 3),
         "motion_profile": motion_profile,
     }
+    if "phone_idx" in allocation_row:
+        row["phone_idx"] = int(allocation_row["phone_idx"])
+    return row
 
 
 def _mix_row(event: dict, frame_id: int, time_ms: int, start_v: int, end_v: int, alpha: float) -> dict:
@@ -239,6 +329,13 @@ def _mix_row(event: dict, frame_id: int, time_ms: int, start_v: int, end_v: int,
         "end_viseme": int(end_v),
         "alpha": round(float(alpha), 6),
     }
+
+
+def _dedupe_frame_rows(rows: list[dict]) -> list[dict]:
+    by_frame = {}
+    for row in rows:
+        by_frame[int(row["frame_id"])] = row
+    return [by_frame[frame_id] for frame_id in sorted(by_frame)]
 
 
 def _profile_alpha(alpha: float, prev_profile: str, next_profile: str, curve: str) -> float:
@@ -262,4 +359,3 @@ def _curve(alpha: float, curve: str) -> float:
     if curve == "smoothstep":
         return 3.0 * alpha**2 - 2.0 * alpha**3
     return alpha
-

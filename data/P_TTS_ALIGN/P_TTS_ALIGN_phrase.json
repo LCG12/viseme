@@ -1,0 +1,15 @@
+{
+  "paragraph_id": "P_TTS_ALIGN",
+  "phrases": [
+    {
+      "phrase_idx": 0,
+      "text": "爸爸妈妈你好",
+      "punctuation": "，"
+    },
+    {
+      "phrase_idx": 1,
+      "text": "今天我们测试机器人嘴型同步",
+      "punctuation": "。"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+paragraph_id,phrase_idx,segment_idx,start_frame,end_frame,start_time_ms,end_time_ms,fallback
+P_TTS_ALIGN,0,0,3,23,120,920,0
+P_TTS_ALIGN,1,1,30,117,1200,4680,0

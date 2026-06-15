@@ -10,12 +10,13 @@
   -> 音节帧分配
   -> 声母/韵母 phone events
   -> 每帧 alpha
+  -> RMS 调整动作幅度
   -> 6 路嘴部舵机
   -> 16 路完整舵机轨迹
   -> 播放音频并同步发送舵机
 ```
 
-最重要的原则是：不要给每个音节写固定时长。当前仍然用音频 RMS active region 决定每句话/音节占多少帧；然后在音节内部拆成声母、韵母事件，让闭合、释放、元音保持更接近真实发音动作。
+最重要的原则是：不要给每个音节写固定时长。当前仍然用音频 RMS active region 辅助决定每句话/音节占多少帧；然后在音节内部拆成声母、韵母事件，让闭合、释放、元音保持更接近真实发音动作。生成嘴部轨迹时，RMS 还会作为强度信号调节动作幅度，但不改变 viseme 类别。
 
 ## Viseme 表
 
@@ -251,9 +252,12 @@ P002.wav
 
 P002_syllable_viseme.json + P002_phrase_segment.csv
   -> P002_allocation.csv
+  -> P002_tts_events.json
+  -> P002_phone_alignment.csv
   -> P002_phone_events.csv
   -> P002_viseme_mix.csv
   -> P002_servo_mouth.csv
+  -> P002_viseme_mapping_report.csv
   -> P002_servo_target_16ch.csv
   -> P002_servo_target_16ch_safe.csv
 ```
@@ -283,16 +287,25 @@ P002_syllable_viseme.json + P002_phrase_segment.csv
 把文本 phrase 和音频 active segment 对齐。现在会优先一一对应；如果 RMS 检出很多小段，会按文本长度比例分配，并优先把边界放在较长静音处；如果 RMS 信息不足，才按整段比例切分并把 `fallback` 标成 1。
 
 `P002_allocation.csv`  
-把每个音节分配到具体帧区间。这是时间分配的核心结果，说明每个音节占哪些 audio frames。
+把每个音节分配到具体帧区间。它保留为音节级调试表，也可用于旧版 `--timing-mode syllable`。
+
+`P002_tts_events.json`  
+使用 Windows TTS 生成音频时会同时生成，记录 SAPI 的 phoneme、viseme 和文本进度事件。默认 `--alignment-source auto` 会优先使用其中的 viseme 时间戳。
+
+`P002_phone_alignment.csv`  
+默认 `phone` 模式下的时间主控表。当前有两种来源：如果有 Windows TTS viseme events，会把 SAPI viseme 时间戳映射到我们的 V0-V7；如果 SAPI 给出 `viseme=0` 但 RMS 判断该区间仍有声音，会用估计对齐补上这一段，避免说话中掉成闭嘴；如果没有可用 TTS events，则使用估计对齐，在每个 phrase 时间段内根据拼音声母/韵母和经验时长权重分配 `start_frame` 和 `end_frame`。以后接入真正 forced alignment 或 TTS 音素时间戳时，主要替换这一张表。
 
 `P002_phone_events.csv`  
-默认 `phone` 模式下生成。它把每个音节内部进一步拆成声母/韵母事件，记录每个事件的帧区间、对应 viseme、dominance 和 motion_profile。它是我们把“音节平均过渡”改成“闭合-释放-韵母保持”的关键中间层。
+默认 `phone` 模式下生成。它读取 `P002_phone_alignment.csv`，补充 dominance 和 motion_profile。它是我们把“音节平均过渡”改成“闭合-释放-韵母保持”的关键中间层。
 
 `P002_viseme_mix.csv`  
 展开每一帧的 `alpha`。默认 `phone` 模式下，它来自 `P002_phone_events.csv`；旧版 `syllable` 模式下，它来自 `P002_allocation.csv`。`alpha=0` 表示完全接近 `start_viseme`，`alpha=1` 表示完全接近 `end_viseme`。
 
 `P002_servo_mouth.csv`  
-根据 `start_viseme`、`end_viseme` 和 `alpha`，查 `config/neutral_viseme_pose_final.csv`，插值得到 6 路嘴部舵机轨迹。
+根据 `start_viseme`、`end_viseme` 和 `alpha`，查 `config/neutral_viseme_pose_final.csv`，插值得到 6 路嘴部舵机轨迹。默认还会写入 `rms_amp`，表示当前帧由 RMS 得到的动作幅度系数；它只缩放动作强弱，不改变嘴型类别和时间位置。
+
+`P002_viseme_mapping_report.csv`  
+映射诊断报告。它按 `source + raw_viseme_id + mapped_viseme_id` 汇总：Windows SAPI 原始 viseme 编号、压缩后的机器人 V0-V7、目标 6 路嘴部姿态、实际生成轨迹里的 `mouth_open` 最小值/平均值/最大值，以及若干音节、phone 和帧区间样例。重点用它检查两件事：第一，SAPI 原始 viseme 映射到 V0-V7 是否符合预期；第二，某类映射最后实际张嘴幅度是否太小或太大。`tts_viseme_fallback_estimated` 表示 SAPI 给了 `viseme=0`，但 RMS 判断该区间仍在说话，所以系统改用拼音估计嘴型补上。
 
 `P002_servo_target_16ch.csv`  
 把 6 路嘴部轨迹插入 16 路完整舵机命令。非嘴部舵机来自 `config/neutral_rest.csv`。
@@ -316,12 +329,20 @@ P002_syllable_viseme.json + P002_phrase_segment.csv
 
 ```text
 --control-hz              控制频率，默认 25 Hz
+--alignment-source        对齐来源，auto、estimated 或 tts-viseme，默认 auto
+--phone-alignment         直接使用已有 phone_alignment CSV
+--tts-events              使用或保存 Windows TTS events JSON
 --rms-threshold           RMS active 阈值，默认 0.10
 --rms-smooth-window       RMS 平滑窗口，默认 3 帧
 --min-active-frames       最短 active 段，默认 2 帧
 --max-silence-gap-fill    填补短静音断裂，默认 2 帧
 --timing-mode             时间展开模式，phone 或 syllable，默认 phone
 --alpha-curve             alpha 曲线，linear、smoothstep 或 smootherstep，默认 smootherstep
+--disable-rms-amplitude   关闭 RMS 动作幅度调制，用于和旧轨迹对比
+--rms-amp-min             RMS 幅度下限，默认 0.72
+--rms-amp-max             RMS 幅度上限，默认 1.08
+--rms-amp-percentile      RMS 强度参考分位数，默认 0.92
+--rms-amp-smooth-window   RMS 幅度平滑窗口，默认 3 帧
 --smooth-beta             舵机低通平滑系数，默认 0.75
 --max-delta               每帧最大变化，默认 0.14
 --servo-audio-offset-ms   音频和舵机全局偏移

@@ -73,28 +73,55 @@ def generate_mouth_trajectory(
     n_frames: int,
     viseme_poses: dict[int, np.ndarray],
     neutral_mouth: np.ndarray | None = None,
+    rms_rows: list[dict] | None = None,
+    use_rms_amplitude: bool = True,
+    rms_amp_min: float = 0.72,
+    rms_amp_max: float = 1.08,
+    rms_amp_percentile: float = 0.92,
+    rms_amp_smooth_window: int = 3,
 ) -> list[dict]:
-    neutral = neutral_mouth if neutral_mouth is not None else np.zeros(6, dtype=np.float32)
+    neutral = clamp_mouth_array(neutral_mouth if neutral_mouth is not None else np.zeros(6, dtype=np.float32))
     frame_rows: list[dict] = []
     active_by_frame = {int(row["frame_id"]): row for row in mix_rows}
+    rms_scales = _rms_amplitude_scales(
+        rms_rows,
+        n_frames,
+        amp_min=rms_amp_min,
+        amp_max=rms_amp_max,
+        percentile=rms_amp_percentile,
+        smooth_window=rms_amp_smooth_window,
+    ) if use_rms_amplitude else None
 
     for frame_id in range(int(n_frames)):
         mix = active_by_frame.get(frame_id)
         if mix:
-            start = viseme_poses[int(mix["start_viseme"])]
-            end = viseme_poses[int(mix["end_viseme"])]
+            start_v = int(mix["start_viseme"])
+            end_v = int(mix["end_viseme"])
+            start = viseme_poses[start_v]
+            end = viseme_poses[end_v]
             alpha = float(mix["alpha"])
             mouth = clamp_mouth_array(start * (1.0 - alpha) + end * alpha)
+            rms_amp = ""
+            if rms_scales is not None:
+                rms_amp_value = _protect_constrained_visemes(
+                    float(rms_scales[frame_id]),
+                    start_v=start_v,
+                    end_v=end_v,
+                    alpha=alpha,
+                )
+                mouth = clamp_mouth_array(neutral + (mouth - neutral) * rms_amp_value)
+                rms_amp = round(float(rms_amp_value), 6)
             meta = {
                 "syllable": mix["syllable"],
-                "start_v": int(mix["start_viseme"]),
-                "end_v": int(mix["end_viseme"]),
+                "start_v": start_v,
+                "end_v": end_v,
                 "alpha": round(alpha, 6),
+                "rms_amp": rms_amp,
             }
             time_ms = int(mix["time_ms"])
         else:
             mouth = clamp_mouth_array(neutral)
-            meta = {"syllable": "", "start_v": "", "end_v": "", "alpha": ""}
+            meta = {"syllable": "", "start_v": "", "end_v": "", "alpha": "", "rms_amp": ""}
             time_ms = ""
 
         row = {"frame_id": frame_id, "time_ms": time_ms, **meta}
@@ -102,6 +129,57 @@ def generate_mouth_trajectory(
             row[name] = round(float(value), 6)
         frame_rows.append(row)
     return frame_rows
+
+
+def _rms_amplitude_scales(
+    rms_rows: list[dict] | None,
+    n_frames: int,
+    amp_min: float,
+    amp_max: float,
+    percentile: float,
+    smooth_window: int,
+) -> np.ndarray | None:
+    if not rms_rows:
+        return None
+
+    n_frames = int(n_frames)
+    rms_norm = np.zeros(n_frames, dtype=np.float32)
+    active = np.zeros(n_frames, dtype=bool)
+    for row in rms_rows:
+        frame_id = int(row.get("frame_id", 0))
+        if 0 <= frame_id < n_frames:
+            rms_norm[frame_id] = max(0.0, float(row.get("rms_norm", 0.0)))
+            active[frame_id] = int(row.get("active", 0)) == 1
+
+    reference_values = rms_norm[active]
+    if len(reference_values) == 0 or float(np.max(reference_values)) <= 0.0:
+        reference_values = rms_norm[rms_norm > 0.0]
+    if len(reference_values) == 0:
+        return np.ones(n_frames, dtype=np.float32)
+
+    percentile = max(0.50, min(0.99, float(percentile)))
+    reference = max(1e-6, float(np.percentile(reference_values, percentile * 100.0)))
+    energy = np.clip(rms_norm / reference, 0.0, 1.0)
+    energy = np.sqrt(energy)
+
+    window = max(1, int(smooth_window))
+    if window > 1 and len(energy) > 1:
+        kernel = np.ones(window, dtype=np.float32) / float(window)
+        energy = np.convolve(energy, kernel, mode="same")
+
+    amp_min = max(0.0, float(amp_min))
+    amp_max = max(amp_min, float(amp_max))
+    return (amp_min + (amp_max - amp_min) * np.clip(energy, 0.0, 1.0)).astype(np.float32)
+
+
+def _protect_constrained_visemes(scale: float, start_v: int, end_v: int, alpha: float) -> float:
+    alpha = max(0.0, min(1.0, float(alpha)))
+    protected = 0.0
+    if int(start_v) in {0, 1}:
+        protected = max(protected, 1.0 - alpha)
+    if int(end_v) in {0, 1}:
+        protected = max(protected, alpha)
+    return float(scale) * (1.0 - protected) + protected
 
 
 def build_16ch_trajectory(mouth_rows: list[dict], neutral_rest: dict[int, float], control_hz: float) -> list[dict]:

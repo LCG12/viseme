@@ -1,0 +1,195 @@
+{
+  "paragraph_id": "P_TTS_ALIGN",
+  "syllables": [
+    {
+      "syllable": "ba",
+      "initial": "b",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 0,
+      "phrase_idx": 0,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "ba",
+      "initial": "b",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 1,
+      "phrase_idx": 0,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "ma",
+      "initial": "m",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 2,
+      "phrase_idx": 0,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "ma",
+      "initial": "m",
+      "final": "a",
+      "start_viseme": 0,
+      "end_viseme": 7,
+      "global_syllable_idx": 3,
+      "phrase_idx": 0,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ni",
+      "initial": "n",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 4,
+      "phrase_idx": 0,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "hao",
+      "initial": "h",
+      "final": "ao",
+      "start_viseme": 4,
+      "end_viseme": 6,
+      "global_syllable_idx": 5,
+      "phrase_idx": 0,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "jin",
+      "initial": "j",
+      "final": "in",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 6,
+      "phrase_idx": 1,
+      "syllable_idx": 0
+    },
+    {
+      "syllable": "tian",
+      "initial": "t",
+      "final": "ian",
+      "start_viseme": 2,
+      "end_viseme": 7,
+      "global_syllable_idx": 7,
+      "phrase_idx": 1,
+      "syllable_idx": 1
+    },
+    {
+      "syllable": "wo",
+      "initial": "w",
+      "final": "o",
+      "start_viseme": 3,
+      "end_viseme": 6,
+      "global_syllable_idx": 8,
+      "phrase_idx": 1,
+      "syllable_idx": 2
+    },
+    {
+      "syllable": "men",
+      "initial": "m",
+      "final": "en",
+      "start_viseme": 0,
+      "end_viseme": 4,
+      "global_syllable_idx": 9,
+      "phrase_idx": 1,
+      "syllable_idx": 3
+    },
+    {
+      "syllable": "ce",
+      "initial": "c",
+      "final": "e",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 10,
+      "phrase_idx": 1,
+      "syllable_idx": 4
+    },
+    {
+      "syllable": "shi",
+      "initial": "sh",
+      "final": "i",
+      "start_viseme": 2,
+      "end_viseme": 5,
+      "global_syllable_idx": 11,
+      "phrase_idx": 1,
+      "syllable_idx": 5
+    },
+    {
+      "syllable": "ji",
+      "initial": "j",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 12,
+      "phrase_idx": 1,
+      "syllable_idx": 6
+    },
+    {
+      "syllable": "qi",
+      "initial": "q",
+      "final": "i",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 13,
+      "phrase_idx": 1,
+      "syllable_idx": 7
+    },
+    {
+      "syllable": "ren",
+      "initial": "r",
+      "final": "en",
+      "start_viseme": 2,
+      "end_viseme": 4,
+      "global_syllable_idx": 14,
+      "phrase_idx": 1,
+      "syllable_idx": 8
+    },
+    {
+      "syllable": "zui",
+      "initial": "z",
+      "final": "ui",
+      "start_viseme": 5,
+      "end_viseme": 5,
+      "global_syllable_idx": 15,
+      "phrase_idx": 1,
+      "syllable_idx": 9
+    },
+    {
+      "syllable": "xing",
+      "initial": "x",
+      "final": "ing",
+      "start_viseme": 5,
+      "end_viseme": 4,
+      "global_syllable_idx": 16,
+      "phrase_idx": 1,
+      "syllable_idx": 10
+    },
+    {
+      "syllable": "tong",
+      "initial": "t",
+      "final": "ong",
+      "start_viseme": 2,
+      "end_viseme": 6,
+      "global_syllable_idx": 17,
+      "phrase_idx": 1,
+      "syllable_idx": 11
+    },
+    {
+      "syllable": "bu",
+      "initial": "b",
+      "final": "u",
+      "start_viseme": 0,
+      "end_viseme": 3,
+      "global_syllable_idx": 18,
+      "phrase_idx": 1,
+      "syllable_idx": 12
+    }
+  ]
+}

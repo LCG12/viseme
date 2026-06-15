@@ -2,11 +2,19 @@
   "paragraph_id": "P002",
   "text": "仿真机器人有望通过逼真的面部表情实现自然的人机交互。然而，由于面部生物力学的复杂性以及对响应式运动合成的需求，生成逼真且与语音同步的机器人表情面临着巨大的挑战。本文提出了一种以蒙皮为中心的新方法，利用语音输入驱动仿真机器人的面部表情。该方法的核心是采用线性混合蒙皮（LBS）作为统一的表示方法，从而指导实体设计和运动合成方面的创新。LBS 能够指导驱动拓扑结构，促进人类表情的重定向，并实现高效的语音驱动面部运动生成。该方法在单块 Nvidia RTX 4090 显卡上实现了超过 4000 fps 的实时仿真面部表情生成能力，显著提升了机器人复制细微人类表情以实现自然交互的能力。",
   "audio": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P002\\P002.wav",
+  "tts_events": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P002\\P002_tts_events.json",
   "config_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\config",
   "sample_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P002",
   "control_hz": 25.0,
   "timing_mode": "phone",
   "alpha_curve": "smootherstep",
+  "rms_amplitude": {
+    "enabled": true,
+    "min": 0.72,
+    "max": 1.08,
+    "percentile": 0.92,
+    "smooth_window": 3
+  },
   "rms": {
     "sample_rate": 22050,
     "control_hz": 25.0,
@@ -22,8 +30,13 @@
   "syllables": 242,
   "phrase_segments": 13,
   "phrase_segment_fallbacks": 0,
-  "phone_events": 445,
+  "phone_alignment": {
+    "source": "tts_viseme",
+    "phones": 986
+  },
+  "phone_events": 986,
   "active_segments": 111,
+  "viseme_mapping_report": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P002\\P002_viseme_mapping_report.csv",
   "safe_trajectory": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P002\\P002_servo_target_16ch_safe.csv",
   "mouth_servo_names": [
     "mouth_open",

@@ -1,0 +1,48 @@
+{
+  "paragraph_id": "P_TTS_ALIGN",
+  "text": "爸爸妈妈你好，今天我们测试机器人嘴型同步。",
+  "audio": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TTS_ALIGN\\P_TTS_ALIGN.wav",
+  "tts_events": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TTS_ALIGN\\P_TTS_ALIGN_tts_events.json",
+  "config_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\config",
+  "sample_dir": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TTS_ALIGN",
+  "control_hz": 25.0,
+  "timing_mode": "phone",
+  "alpha_curve": "smootherstep",
+  "rms_amplitude": {
+    "enabled": true,
+    "min": 0.72,
+    "max": 1.08,
+    "percentile": 0.92,
+    "smooth_window": 3
+  },
+  "rms": {
+    "sample_rate": 22050,
+    "control_hz": 25.0,
+    "frame_size_samples": 882,
+    "frames": 139,
+    "threshold": 0.1,
+    "smooth_window": 3,
+    "min_active_frames": 2,
+    "max_silence_gap_fill": 2,
+    "duration_seconds": 5.547392290249433
+  },
+  "phrases": 2,
+  "syllables": 19,
+  "phrase_segments": 2,
+  "phrase_segment_fallbacks": 0,
+  "phone_alignment": {
+    "source": "tts_viseme",
+    "phones": 66
+  },
+  "phone_events": 66,
+  "active_segments": 8,
+  "safe_trajectory": "D:\\Crossing-the-Uncanny-Valley-with-Robot-Lip-Motion-main\\direct_robot_pipeline\\data\\P_TTS_ALIGN\\P_TTS_ALIGN_servo_target_16ch_safe.csv",
+  "mouth_servo_names": [
+    "mouth_open",
+    "mouth_up_corner_l",
+    "mouth_up_corner_r",
+    "mouth_lip_upper_l",
+    "mouth_lip_upper_r",
+    "mouth_lip_lower"
+  ]
+}
