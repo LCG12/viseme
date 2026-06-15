@@ -16,6 +16,7 @@ from src.constants import MOUTH_CSV_NAMES, MOUTH_SERVO_NAMES, SERVO_NAMES
 from src.evaluation import ensure_evaluation_templates
 from src.io_utils import ensure_dir, write_csv, write_json
 from src.pinyin_convert import phrases_to_pinyin
+from src.phone_events import build_phone_events, compute_phone_event_mix
 from src.robot_player import play_audio_and_send_servos
 from src.segment_detect import align_phrases_to_segments, detect_active_segments
 from src.servo_smoothing import clamp_servo_values, load_servo_limits, smooth_trajectory
@@ -58,6 +59,22 @@ ALLOCATION_FIELDS = [
     "end_frame",
     "num_frames",
 ]
+PHONE_EVENT_FIELDS = [
+    "paragraph_id",
+    "phrase_idx",
+    "syllable_idx",
+    "global_syllable_idx",
+    "syllable",
+    "phone",
+    "phone_role",
+    "viseme_id",
+    "start_frame",
+    "end_frame",
+    "start_time_ms",
+    "end_time_ms",
+    "dominance",
+    "motion_profile",
+]
 MIX_FIELDS = [
     "frame_id",
     "time_ms",
@@ -89,7 +106,8 @@ def parse_args():
     parser.add_argument("--rms-smooth-window", type=int, default=3)
     parser.add_argument("--min-active-frames", type=int, default=2)
     parser.add_argument("--max-silence-gap-fill", type=int, default=2)
-    parser.add_argument("--alpha-curve", choices=["linear", "smootherstep"], default="linear")
+    parser.add_argument("--timing-mode", choices=["phone", "syllable"], default="phone")
+    parser.add_argument("--alpha-curve", choices=["linear", "smoothstep", "smootherstep"], default="smootherstep")
     parser.add_argument("--smooth-beta", type=float, default=0.75)
     parser.add_argument("--max-delta", type=float, default=0.14)
     parser.add_argument("--execute", action="store_true", help="Play audio and send the safe 16ch trajectory.")
@@ -187,7 +205,18 @@ def main():
     allocation = allocate_syllable_frames(paragraph_id, syllable_doc, phrase_segments)
     write_csv(sample_dir / f"{paragraph_id}_allocation.csv", allocation, ALLOCATION_FIELDS)
 
-    mix_rows = compute_alpha_mix(allocation, control_hz=args.control_hz, curve=args.alpha_curve)
+    phone_events = build_phone_events(
+        paragraph_id,
+        allocation,
+        syllable_doc,
+        control_hz=args.control_hz,
+    )
+    write_csv(sample_dir / f"{paragraph_id}_phone_events.csv", phone_events, PHONE_EVENT_FIELDS)
+
+    if args.timing_mode == "phone":
+        mix_rows = compute_phone_event_mix(phone_events, control_hz=args.control_hz, curve=args.alpha_curve)
+    else:
+        mix_rows = compute_alpha_mix(allocation, control_hz=args.control_hz, curve=args.alpha_curve)
     write_csv(sample_dir / f"{paragraph_id}_viseme_mix.csv", mix_rows, MIX_FIELDS)
 
     neutral_rest = load_neutral_rest(config_dir, ROOT / "neutral_rest.json")
@@ -221,9 +250,14 @@ def main():
         "config_dir": str(config_dir),
         "sample_dir": str(sample_dir),
         "control_hz": args.control_hz,
+        "timing_mode": args.timing_mode,
+        "alpha_curve": args.alpha_curve,
         "rms": rms_meta,
         "phrases": len(phrase_doc["phrases"]),
         "syllables": len(syllable_doc["syllables"]),
+        "phrase_segments": len(phrase_segments),
+        "phrase_segment_fallbacks": sum(int(row.get("fallback", 0)) for row in phrase_segments),
+        "phone_events": len(phone_events),
         "active_segments": len(segments),
         "safe_trajectory": str(safe_path),
         "mouth_servo_names": MOUTH_SERVO_NAMES,

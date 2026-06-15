@@ -1,9 +1,9 @@
 viseme_id,phonemes,aperture,shape_label
 0,"b,p,m",0.0,closed_lip
-1,f,0.06,small_labiodental
+1,f,0.0,small_labiodental
 2,"d,t,n,l,zh,ch,sh,r",0.13,small_open
 3,"w,u",0.16,small_round
 4,"e,en,eng,k,g,h",0.29,mid_open
 5,"i,j,q,x,z,c,s",0.16,wide_flat
 6,"o,ong",0.3,round_open
-7,"a,an,ang",0.46,large_open
+7,"a,an,ang",0.52,large_open

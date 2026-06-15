@@ -4,7 +4,9 @@ from __future__ import annotations
 def _curve_alpha(alpha: float, curve: str) -> float:
     alpha = max(0.0, min(1.0, float(alpha)))
     if curve == "smootherstep":
-        return 3.0 * alpha * alpha - 2.0 * alpha * alpha * alpha
+        return 6.0 * alpha**5 - 15.0 * alpha**4 + 10.0 * alpha**3
+    if curve == "smoothstep":
+        return 3.0 * alpha**2 - 2.0 * alpha**3
     return alpha
 
 
@@ -37,4 +39,3 @@ def compute_alpha_mix(
             )
     rows.sort(key=lambda row: int(row["frame_id"]))
     return rows
-
